@@ -4,16 +4,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Custom Interiors | Crafted for Your Space. Built to Last.</title>
+<title>Elite Custom Interiors | Crafted with Precision</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080808;--surface:#0f0f0f;--surface-2:#141414;--gold:#C9A84C;--gold-light:#E2C47A;--gold-dim:#7a6530;--text:#F0EAD6;--text-muted:#7a7060;--border:rgba(201,168,76,0.2);--border-strong:rgba(201,168,76,0.55);--tab-h:62px;}
+:root{
+  --bg:#080808;--surface:#0f0f0f;--surface-2:#141414;
+  --gold:#C9A84C;--gold-light:#E2C47A;--gold-dim:#7a6530;
+  --text:#F0EAD6;--text-muted:#7a7060;
+  --border:rgba(201,168,76,0.2);--border-strong:rgba(201,168,76,0.55);
+  --tab-h:62px;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5;}
 
 /* TOPBAR */
 #topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.97);border-bottom:1px solid var(–border);backdrop-filter:blur(12px);padding:0 clamp(16px,5vw,48px);display:flex;align-items:center;justify-content:space-between;height:58px;}
@@ -48,7 +53,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .btn-gold:hover{background:var(–gold-light);transform:translateY(-2px);}
 .btn-out{font-family:‘Raleway’,sans-serif;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;background:transparent;color:var(–gold);border:1px solid var(–border-strong);padding:13px 30px;cursor:pointer;text-decoration:none;display:inline-block;transition:background .3s,transform .2s;}
 .btn-out:hover{background:rgba(201,168,76,0.08);transform:translateY(-2px);}
-.pfooter{position:relative;z-index:1;background:var(–surface);border-top:1px solid var(–border);padding:36px clamp(16px,7vw,80px);text-align:center;}
+.pfooter{background:var(–surface);border-top:1px solid var(–border);padding:36px clamp(16px,7vw,80px);text-align:center;}
 .pfooter-brand{font-family:‘Cinzel’,serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(–gold);margin-bottom:5px;}
 .pfooter-tag{font-family:‘Cormorant Garamond’,serif;font-style:italic;color:var(–text-muted);font-size:.88rem;margin-bottom:16px;}
 .pfooter-copy{font-size:.52rem;letter-spacing:.14em;color:var(–text-muted);opacity:.4;}
@@ -83,15 +88,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .price-range{font-family:‘Cinzel’,serif;font-size:clamp(1.2rem,3vw,1.9rem);color:var(–gold);letter-spacing:.1em;}
 
 /* PORTFOLIO */
-.pf-filters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 36px;}
+.pf-filters{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 16px;}
 .pf-btn{font-family:‘Raleway’,sans-serif;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;background:none;color:var(–text-muted);border:1px solid var(–border);padding:7px 18px;cursor:pointer;transition:all .3s;}
 .pf-btn:hover,.pf-btn.active{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,0.06);}
-.pf-count{font-size:.52rem;letter-spacing:.2em;color:var(–gold-dim);margin-bottom:24px;}
-
-/* MASONRY GRID */
+.pf-count{font-size:.52rem;letter-spacing:.2em;color:var(–gold-dim);margin-bottom:20px;display:block;}
 .pf-grid{columns:3;column-gap:10px;}
 @media(max-width:768px){.pf-grid{columns:2;}}
-@media(max-width:480px){.pf-grid{columns:1;}}
+@media(max-width:440px){.pf-grid{columns:1;}}
 .pf-item{break-inside:avoid;margin-bottom:10px;position:relative;overflow:hidden;cursor:pointer;border:1px solid var(–border);display:block;transition:border-color .3s;}
 .pf-item:hover{border-color:var(–border-strong);}
 .pf-img{width:100%;height:auto;display:block;transition:transform .5s ease;}
@@ -101,39 +104,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .pf-title{font-family:‘Cinzel’,serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(–gold);margin-bottom:3px;}
 .pf-loc{font-family:‘Cormorant Garamond’,serif;font-size:.8rem;color:var(–text-muted);font-style:italic;}
 
-/* VIDEO SECTION */
+/* VIDEO */
 .video-section{margin-top:64px;padding-top:48px;border-top:1px solid var(–border);}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px;}
-.video-card{background:var(–surface);border:1px solid var(–border);overflow:hidden;transition:border-color .3s;}
-.video-card:hover{border-color:var(–border-strong);}
+.video-card{background:var(–surface);border:1px solid var(–border);overflow:hidden;}
 .video-embed{width:100%;aspect-ratio:16/9;border:none;display:block;}
-.video-placeholder{width:100%;aspect-ratio:16/9;background:var(–surface-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid var(–border);}
-.video-placeholder-icon{font-size:2rem;opacity:.3;}
-.video-placeholder-txt{font-family:‘Cinzel’,serif;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(–gold-dim);}
 .video-info{padding:16px 18px;}
 .video-title{font-family:‘Cinzel’,serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(–gold);margin-bottom:4px;}
 .video-sub{font-family:‘Cormorant Garamond’,serif;font-size:.88rem;color:var(–text-muted);font-style:italic;}
 
-/* LIGHTBOX */
-#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:999;align-items:center;justify-content:center;padding:20px;}
-#lightbox.open{display:flex;}
-#lightbox-img{max-width:90vw;max-height:85vh;object-fit:contain;border:1px solid var(–border);}
-#lb-close{position:absolute;top:20px;right:24px;font-size:1.8rem;color:var(–gold);cursor:pointer;background:none;border:none;line-height:1;z-index:1000;}
-#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(–gold);cursor:pointer;background:rgba(8,8,8,0.7);border:1px solid var(–border);padding:12px 16px;transition:background .3s;z-index:1000;}
-#lb-prev{left:12px;}#lb-next{right:12px;}
-#lb-prev:hover,#lb-next:hover{background:rgba(201,168,76,0.15);}
-#lb-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);text-align:center;}
-#lb-cap-title{font-family:‘Cinzel’,serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(–gold);}
-#lb-cap-loc{font-family:‘Cormorant Garamond’,serif;font-size:.88rem;color:var(–text-muted);font-style:italic;}
-#lb-counter{font-size:.52rem;letter-spacing:.3em;color:var(–gold-dim);margin-top:4px;}
-
-/* CONFIGURATOR - reuse same styles */
-.config-layout{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start;margin-top:36px;}
-.config-controls{background:var(–surface);border:1px solid var(–border);padding:26px 22px;position:sticky;top:calc(58px + var(–tab-h) + 16px);}
-.ctrl-section{margin-bottom:24px;}
-.ctrl-section:last-child{margin-bottom:0;}
+/* CONFIGURATOR */
+.config-layout{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:start;margin-top:36px;}
+.config-controls{background:var(–surface);border:1px solid var(–border);padding:24px 20px;position:sticky;top:calc(58px + var(–tab-h) + 16px);}
+.ctrl-section{margin-bottom:22px;}
 .ctrl-label{font-family:‘Cinzel’,serif;font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(–gold-dim);margin-bottom:12px;display:block;}
-.room-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:4px;}
+.room-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
 .room-tab{background:var(–surface-2);border:1px solid var(–border);padding:9px 7px;cursor:pointer;text-align:center;transition:all .3s;font-family:‘Cinzel’,serif;font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;color:var(–text-muted);}
 .room-tab:hover{border-color:var(–border-strong);color:var(–gold-light);}
 .room-tab.active{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,0.08);}
@@ -143,15 +128,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .chip:hover{border-color:var(–border-strong);color:var(–gold-light);}
 .chip.active{border-color:var(–gold);color:var(–gold);background:rgba(201,168,76,0.1);}
 .color-swatches{display:flex;gap:7px;flex-wrap:wrap;}
-.cswatch{width:32px;height:32px;cursor:pointer;border:2px solid transparent;transition:all .3s;}
+.cswatch{width:30px;height:30px;cursor:pointer;border:2px solid transparent;transition:all .3s;}
 .cswatch:hover{transform:scale(1.1);}
 .cswatch.active{border-color:var(–gold);box-shadow:0 0 0 1px var(–gold);}
 .cswatch-label{font-size:.42rem;letter-spacing:.13em;text-transform:uppercase;color:var(–text-muted);margin-top:5px;display:block;text-align:center;white-space:nowrap;}
 .hw-options{display:flex;gap:7px;flex-wrap:wrap;}
-.hw-opt{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:7px;border:1px solid var(–border);background:var(–surface-2);transition:all .3s;min-width:56px;}
+.hw-opt{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:7px;border:1px solid var(–border);background:var(–surface-2);transition:all .3s;min-width:54px;}
 .hw-opt:hover{border-color:var(–border-strong);}
 .hw-opt.active{border-color:var(–gold);background:rgba(201,168,76,0.08);}
-.hw-circle{width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);}
+.hw-circle{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);}
 .hw-name{font-size:.44rem;letter-spacing:.13em;text-transform:uppercase;color:var(–text-muted);}
 .hw-opt.active .hw-name{color:var(–gold);}
 .light-toggle{display:flex;align-items:center;gap:12px;}
@@ -161,8 +146,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .toggle-track.on .toggle-thumb{transform:translateX(20px);background:var(–gold);}
 .toggle-lbl{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(–text-muted);}
 .toggle-track.on+.toggle-lbl{color:var(–gold);}
-.config-cta{margin-top:22px;display:flex;flex-direction:column;gap:9px;}
-.cfg-summary{font-family:‘Cormorant Garamond’,serif;font-size:.86rem;font-style:italic;color:var(–text-muted);line-height:1.5;padding:11px 13px;background:var(–surface-2);border-left:2px solid var(–gold-dim);}
+.config-cta{margin-top:20px;display:flex;flex-direction:column;gap:9px;}
+.cfg-summary{font-family:‘Cormorant Garamond’,serif;font-size:.86rem;font-style:italic;color:var(–text-muted);line-height:1.5;padding:10px 12px;background:var(–surface-2);border-left:2px solid var(–gold-dim);}
 .config-preview{position:sticky;top:calc(58px + var(–tab-h) + 16px);}
 .preview-box{background:var(–surface-2);border:1px solid var(–border);padding:18px;}
 .preview-label{font-family:‘Cinzel’,serif;font-size:.5rem;letter-spacing:.26em;text-transform:uppercase;color:var(–gold-dim);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
@@ -192,6 +177,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .fg textarea{resize:vertical;min-height:110px;}
 .btn-sub{font-family:‘Cinzel’,serif;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(–bg);background:var(–gold);border:none;padding:15px;cursor:pointer;width:100%;transition:background .3s,transform .2s;margin-top:6px;}
 .btn-sub:hover{background:var(–gold-light);transform:translateY(-1px);}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999;align-items:center;justify-content:center;padding:20px;}
+#lightbox.open{display:flex;}
+#lightbox-img{max-width:90vw;max-height:85vh;object-fit:contain;border:1px solid var(–border);}
+#lb-close{position:absolute;top:20px;right:24px;font-size:1.8rem;color:var(–gold);cursor:pointer;background:none;border:none;line-height:1;z-index:1000;}
+#lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);font-size:1.4rem;color:var(–gold);cursor:pointer;background:rgba(8,8,8,0.7);border:1px solid var(–border);padding:12px 16px;transition:background .3s;z-index:1000;}
+#lb-prev{left:12px;}#lb-next{right:12px;}
+#lb-prev:hover,#lb-next:hover{background:rgba(201,168,76,0.15);}
+#lb-caption{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);text-align:center;}
+#lb-cap-title{font-family:‘Cinzel’,serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(–gold);}
+#lb-cap-loc{font-family:‘Cormorant Garamond’,serif;font-size:.88rem;color:var(–text-muted);font-style:italic;}
+#lb-counter{font-size:.52rem;letter-spacing:.3em;color:var(–gold-dim);margin-top:4px;}
 
 @media(max-width:900px){.config-layout{grid-template-columns:1fr;}.config-controls,.config-preview{position:static;}}
 @media(max-width:640px){.frow{grid-template-columns:1fr;}.hero-stats{gap:28px;}.hframe{inset:14px;}.hframe span{width:26px;height:26px;}.preview-specs{grid-template-columns:1fr;}}
@@ -233,7 +231,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <button class="btn-out" onclick="switchTab('consult')">Book Consultation</button>
       </div>
       <div class="hero-stats">
-        <div><div class="snum">16+</div><div class="slbl">Projects Completed</div></div>
+        <div><div class="snum">25+</div><div class="slbl">Projects Completed</div></div>
         <div><div class="snum">DFW</div><div class="slbl">Area Served</div></div>
         <div><div class="snum">✦</div><div class="slbl">White Glove Service</div></div>
       </div>
@@ -251,12 +249,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="orn">✦</div>
     <p class="ssub">Every piece designed around your vision — no off-the-shelf compromises.</p>
     <div class="svc-grid">
-      <div class="svc-card"><span class="svc-n">01</span><span class="svc-ico">🪵</span><h3 class="svc-nm">Custom Cabinetry</h3><p class="svc-d">Kitchen cabinets, bathroom vanities, and storage solutions designed precisely for your space with premium finishes and hardware.</p></div>
+      <div class="svc-card"><span class="svc-n">01</span><span class="svc-ico">🪵</span><h3 class="svc-nm">Custom Cabinetry</h3><p class="svc-d">Kitchen cabinets, bathroom vanities, and storage solutions designed precisely for your space with premium finishes.</p></div>
       <div class="svc-card"><span class="svc-n">02</span><span class="svc-ico">📺</span><h3 class="svc-nm">Media & Entertainment Walls</h3><p class="svc-d">Built-in entertainment centers and feature walls with hidden cable management, ambient lighting, and custom shelving.</p></div>
       <div class="svc-card"><span class="svc-n">03</span><span class="svc-ico">📚</span><h3 class="svc-nm">Built-In Shelving</h3><p class="svc-d">Floor-to-ceiling bookshelves, display niches, and home office built-ins that transform wall space into architectural statements.</p></div>
       <div class="svc-card"><span class="svc-n">04</span><span class="svc-ico">🚪</span><h3 class="svc-nm">Trim & Millwork</h3><p class="svc-d">Crown molding, wainscoting, coffered ceilings, and finish carpentry that elevates every room from ordinary to extraordinary.</p></div>
       <div class="svc-card"><span class="svc-n">05</span><span class="svc-ico">🛋️</span><h3 class="svc-nm">Custom Closet Systems</h3><p class="svc-d">Walk-in closets and wardrobe systems built to your exact measurements, lifestyle, and aesthetic.</p></div>
-      <div class="svc-card"><span class="svc-n">06</span><span class="svc-ico">✨</span><h3 class="svc-nm">Specialty & Accent Walls</h3><p class="svc-d">From sculptural wave walls to geometric feature walls — custom statement pieces that make every space unforgettable.</p></div>
+      <div class="svc-card"><span class="svc-n">06</span><span class="svc-ico">✨</span><h3 class="svc-nm">Specialty & Accent Walls</h3><p class="svc-d">Sculptural wave walls, geometric feature walls — custom statement pieces that make every space unforgettable.</p></div>
     </div>
     <div class="price-box">
       <p>Investment range for custom projects</p>
@@ -276,45 +274,293 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <h2 class="stitle">Craftsmanship on Display</h2>
     <div class="orn">✦</div>
     <p class="ssub">Every project tells a story. Every detail is intentional.</p>
+    <div class="pf-filters">
+      <button class="pf-btn active" onclick="filterPF('all',this)">All Work</button>
+      <button class="pf-btn" onclick="filterPF('media',this)">Media Walls</button>
+      <button class="pf-btn" onclick="filterPF('millwork',this)">Millwork</button>
+      <button class="pf-btn" onclick="filterPF('ceiling',this)">Ceilings</button>
+      <button class="pf-btn" onclick="filterPF('shelving',this)">Shelving</button>
+      <button class="pf-btn" onclick="filterPF('cabinetry',this)">Cabinetry</button>
+      <button class="pf-btn" onclick="filterPF('specialty',this)">Specialty</button>
+    </div>
+    <span class="pf-count" id="pfCount"></span>
+    <div class="pf-grid" id="pfGrid"></div>
 
 ```
-<div class="pf-filters">
-  <button class="pf-btn active" onclick="filterPF('all',this)">All Work</button>
-  <button class="pf-btn" onclick="filterPF('media',this)">Media Walls</button>
-  <button class="pf-btn" onclick="filterPF('millwork',this)">Millwork</button>
-  <button class="pf-btn" onclick="filterPF('ceiling',this)">Ceilings</button>
-  <button class="pf-btn" onclick="filterPF('shelving',this)">Shelving</button>
-  <button class="pf-btn" onclick="filterPF('cabinetry',this)">Cabinetry</button>
-  <button class="pf-btn" onclick="filterPF('specialty',this)">Specialty</button>
-</div>
-
-<p class="pf-count" id="pfCount"></p>
-<div class="pf-grid" id="pfGrid"></div>
-
-<!-- VIDEO SECTION -->
 <div class="video-section">
   <span class="eyebrow">In Motion</span>
   <h3 class="stitle" style="font-size:clamp(1.1rem,3vw,1.8rem);">See the Craft in Action</h3>
   <div class="orn">✦</div>
-  <div class="video-grid" id="videoGrid">
-    <!-- Videos will be injected here — placeholders shown until YouTube links are added -->
-    <div class="video-card">
-      <div class="video-placeholder"><span class="video-placeholder-icon">🎬</span><span class="video-placeholder-txt">Video Coming Soon</span></div>
-      <div class="video-info"><div class="video-title">Project Walkthrough</div><div class="video-sub">DFW Custom Interior</div></div>
-    </div>
-    <div class="video-card">
-      <div class="video-placeholder"><span class="video-placeholder-icon">🎬</span><span class="video-placeholder-txt">Video Coming Soon</span></div>
-      <div class="video-info"><div class="video-title">Time-Lapse Build</div><div class="video-sub">Media Wall Installation</div></div>
-    </div>
-    <div class="video-card">
-      <div class="video-placeholder"><span class="video-placeholder-icon">🎬</span><span class="video-placeholder-txt">Video Coming Soon</span></div>
-      <div class="video-info"><div class="video-title">Before & After</div><div class="video-sub">Full Room Transformation</div></div>
-    </div>
-  </div>
-  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-dim);font-size:.88rem;">More project videos coming soon.</p>
+  <div class="video-grid" id="videoGrid"></div>
 </div>
 ```
 
   </div>
   <div class="pfooter"><div class="pfooter-brand">Elite Custom Interiors</div><p class="pfooter-tag">Crafted with Precision.</p><p class="pfooter-copy">© 2026 Elite Custom Interiors · Dallas–Fort Worth, TX</p></div>
 </div>
+
+<!-- DESIGN IT -->
+
+<div class="panel" id="panel-config">
+  <div class="wrap">
+    <span class="eyebrow">Design Your Space</span>
+    <h2 class="stitle">Cabinet & Wall Configurator</h2>
+    <div class="orn">✦</div>
+    <p class="ssub">Choose your room, style, colors, and finishes — watch your design come to life in real time.</p>
+    <div class="config-layout">
+      <div class="config-controls">
+        <div class="ctrl-section"><span class="ctrl-label">01 — Choose Your Room</span>
+          <div class="room-tabs">
+            <div class="room-tab active" onclick="setRoom('kitchen',this)"><span class="room-tab-icon">🍳</span>Kitchen</div>
+            <div class="room-tab" onclick="setRoom('media',this)"><span class="room-tab-icon">📺</span>Media Wall</div>
+            <div class="room-tab" onclick="setRoom('shelving',this)"><span class="room-tab-icon">📚</span>Shelving</div>
+            <div class="room-tab" onclick="setRoom('closet',this)"><span class="room-tab-icon">🚪</span>Closet</div>
+          </div>
+        </div>
+        <div class="ctrl-section"><span class="ctrl-label">02 — Door / Panel Style</span><div class="opt-chips" id="styleChips"></div></div>
+        <div class="ctrl-section"><span class="ctrl-label">03 — Cabinet Color</span><div class="color-swatches" id="colorSwatches"></div></div>
+        <div class="ctrl-section"><span class="ctrl-label">04 — Hardware Finish</span><div class="hw-options" id="hwOptions"></div></div>
+        <div class="ctrl-section"><span class="ctrl-label">05 — Interior Lighting</span>
+          <div class="light-toggle">
+            <div class="toggle-track" id="lightToggle" onclick="toggleLight()"><div class="toggle-thumb"></div></div>
+            <span class="toggle-lbl" id="lightLbl">Off</span>
+          </div>
+        </div>
+        <div class="config-cta">
+          <div class="cfg-summary" id="cfgSummary">Select your options above to build your custom summary.</div>
+          <button class="btn-gold" onclick="bookConfig()" style="width:100%;text-align:center;">Book This Look ✦</button>
+        </div>
+      </div>
+      <div class="config-preview">
+        <div class="preview-box">
+          <div class="preview-label">Live Preview <span class="live-badge">● LIVE</span></div>
+          <svg id="previewSVG" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="preview-specs" id="previewSpecs"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pfooter"><div class="pfooter-brand">Elite Custom Interiors</div><p class="pfooter-tag">Crafted with Precision.</p><p class="pfooter-copy">© 2026 Elite Custom Interiors · Dallas–Fort Worth, TX</p></div>
+</div>
+
+<!-- BOOK NOW -->
+
+<div class="panel" id="panel-consult">
+  <div class="wrap">
+    <div class="ci">
+      <span class="eyebrow">Get Started</span>
+      <h2 class="stitle">Book Your Consultation</h2>
+      <div class="orn">✦</div>
+      <p class="ssub" style="margin-bottom:36px;">Tell us about your project and we'll be in touch within 24 hours to schedule your free in-home visit.</p>
+      <div class="ccard"><span class="ccard-ico">📞</span><div><span class="ccard-lbl">Call or Text</span><a href="tel:4696591912" class="ccard-val">469-659-1912</a></div></div>
+      <div class="ccard"><span class="ccard-ico">✉️</span><div><span class="ccard-lbl">Email</span><a href="mailto:Elite.Interiors1912@Gmail.com" class="ccard-val" style="font-size:.75rem;">Elite.Interiors1912@Gmail.com</a></div></div>
+      <div class="ccard"><span class="ccard-ico">📍</span><div><span class="ccard-lbl">Service Area</span><span class="ccard-val" style="text-decoration:none;cursor:default;">Dallas – Fort Worth Metroplex</span></div></div>
+      <form class="cform" onsubmit="submitForm(event)">
+        <div class="frow">
+          <div class="fg"><label>Your Name</label><input type="text" placeholder="First & Last Name" required></div>
+          <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(XXX) XXX-XXXX" required></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label>Service Interest</label>
+          <select><option value="" disabled selected>Select a service...</option>
+            <option>Custom Cabinetry</option><option>Media & Entertainment Wall</option>
+            <option>Built-In Shelving</option><option>Trim & Millwork</option>
+            <option>Specialty / Accent Wall</option><option>Custom Closet System</option>
+            <option>Full Interior Renovation</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="fg" id="configField" style="display:none;"><label>Your Configured Design</label><input type="text" id="configVal" readonly style="color:var(--gold);font-size:.72rem;"></div>
+        <div class="fg"><label>Tell Us About Your Project</label><textarea placeholder="Describe your space, vision, or any questions..."></textarea></div>
+        <button type="submit" class="btn-sub">Request My Free Consultation</button>
+      </form>
+    </div>
+  </div>
+  <div class="pfooter"><div class="pfooter-brand">Elite Custom Interiors</div><p class="pfooter-tag">Crafted with Precision.</p><p class="pfooter-copy">© 2026 Elite Custom Interiors · Dallas–Fort Worth, TX</p></div>
+</div>
+
+<!-- LIGHTBOX -->
+
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button id="lb-close" onclick="closeLB()" aria-label="Close">✕</button>
+  <button id="lb-prev" onclick="lbNav(-1)" aria-label="Previous">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lb-next" onclick="lbNav(1)" aria-label="Next">›</button>
+  <div id="lb-caption">
+    <div id="lb-cap-title"></div>
+    <div id="lb-cap-loc"></div>
+    <div id="lb-counter"></div>
+  </div>
+</div>
+
+<script>
+const PHOTOS = [
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/E92BB221-.jpeg",cat:"media",title:"Marble & Oak Media Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4625.jpeg",cat:"media",title:"Dark Slat & Marble Media Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_3513.jpeg",cat:"media",title:"Black & Gold Geometric Feature Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4645.jpeg",cat:"media",title:"Slat Wood Fireplace & Media Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4712.png",cat:"media",title:"Dark Built-In Shelving Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_3531.jpeg",cat:"millwork",title:"Wave Sculptural Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2458.png",cat:"millwork",title:"Black & Gold Plaid Millwork",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2457.png",cat:"millwork",title:"Sage Grid Panel Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_1396.jpeg",cat:"millwork",title:"Two-Story Shiplap Feature Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_5869_Original.jpeg",cat:"millwork",title:"Grand Staircase Molding Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4677.jpeg",cat:"millwork",title:"Taupe & Gold Geometric Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4644.jpeg",cat:"millwork",title:"Sage Geometric Accent Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2474.png",cat:"millwork",title:"Gray & Gold Vertical Trim Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2468.jpeg",cat:"millwork",title:"Navy & Gold Geometric Fireplace Wall",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/71278144931__6BA28270-8EBD-420D-B525-DB660AE5E05E_Original.jpeg",cat:"ceiling",title:"Teal Coffered Ceiling",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4553.png",cat:"ceiling",title:"Ornate Coffered Ceiling with LED",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4427.jpeg",cat:"shelving",title:"Arched Built-In Shelving",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4426.jpeg",cat:"shelving",title:"Double Arched Fireplace Built-Ins",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_3942.jpeg",cat:"shelving",title:"Custom Walk-In Pantry Shelving",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2500.jpeg",cat:"cabinetry",title:"Sage Custom Cabinetry",loc:"Flower Mound, TX"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_2461.png",cat:"cabinetry",title:"White Glass-Door Cabinetry",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_3933.jpeg",cat:"cabinetry",title:"Luxury Walk-In Closet System",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_6074_Original.jpeg",cat:"specialty",title:"Dallas Cowboys Fan Room",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/20230319_101706_Original.jpeg",cat:"specialty",title:"Dallas Cowboys Garage Build",loc:"DFW"},
+  {src:"https://raw.githubusercontent.com/maestromovings-maker/ELITE-CUSTOM-INTERIORS-/main/images/IMG_4374.jpeg",cat:"specialty",title:"Custom Kids Room — Cloud Wall",loc:"DFW"},
+];
+
+const VIDEOS = [
+  {id:'2dBnqgTtT2M', title:'Elite Custom Interiors — Dallas Cowboys Build', sub:'Full Project Showcase · DFW'},
+  {id:'yQIFV4k8raI', title:'Elite Custom Interiors — Project Showcase', sub:'Custom Carpentry · DFW'},
+];
+
+// TABS
+function switchTab(id){
+  const ids=['home','services','portfolio','config','consult'];
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.toggle('active',ids[i]===id);b.setAttribute('aria-selected',ids[i]===id);});
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// PORTFOLIO
+let currentFilter='all', filteredPhotos=[], lbIndex=0;
+function buildPortfolio(filter){
+  currentFilter=filter;
+  filteredPhotos=filter==='all'?PHOTOS:PHOTOS.filter(p=>p.cat===filter);
+  const grid=document.getElementById('pfGrid');
+  const count=document.getElementById('pfCount');
+  count.textContent=filteredPhotos.length+' project'+(filteredPhotos.length!==1?'s':'')+' shown';
+  grid.innerHTML='';
+  filteredPhotos.forEach((p,i)=>{
+    const el=document.createElement('div');
+    el.className='pf-item';
+    el.innerHTML=`<img class="pf-img" src="${p.src}" alt="${p.title}" loading="lazy">
+      <div class="pf-overlay"><div class="pf-title">${p.title}</div><div class="pf-loc">${p.loc}</div></div>`;
+    el.onclick=()=>openLB(i);
+    grid.appendChild(el);
+  });
+}
+function filterPF(cat,btn){
+  document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  buildPortfolio(cat);
+}
+
+// LIGHTBOX
+function openLB(idx){lbIndex=idx;showLB();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function showLB(){const p=filteredPhotos[lbIndex];document.getElementById('lightbox-img').src=p.src;document.getElementById('lightbox-img').alt=p.title;document.getElementById('lb-cap-title').textContent=p.title;document.getElementById('lb-cap-loc').textContent=p.loc;document.getElementById('lb-counter').textContent=(lbIndex+1)+' / '+filteredPhotos.length;}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNav(dir){lbIndex=(lbIndex+dir+filteredPhotos.length)%filteredPhotos.length;showLB();}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
+
+// VIDEOS
+function loadVideos(){
+  const vg=document.getElementById('videoGrid');
+  if(VIDEOS.length===0){vg.innerHTML='<p style="font-family:Cormorant Garamond,serif;font-style:italic;color:var(--text-muted);">Videos coming soon.</p>';return;}
+  vg.innerHTML='';
+  VIDEOS.forEach(v=>{
+    vg.innerHTML+=`<div class="video-card"><iframe class="video-embed" src="https://www.youtube.com/embed/${v.id}" title="${v.title}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe><div class="video-info"><div class="video-title">${v.title}</div><div class="video-sub">${v.sub}</div></div></div>`;
+  });
+}
+
+// CONFIGURATOR
+const rooms={
+  kitchen:{label:'Kitchen Cabinets',styles:['Flat Slab','Shaker','Raised Panel','Beadboard'],colors:[{name:'Void Black',hex:'#0d0d0d'},{name:'Charcoal',hex:'#2a2a2a'},{name:'Deep Navy',hex:'#1a2035'},{name:'Forest',hex:'#1e2e22'},{name:'Off White',hex:'#f0ece2'},{name:'Warm Gray',hex:'#8a8278'}]},
+  media:{label:'Media / Entertainment Wall',styles:['Full Panel','Floating Shelves','Alcove Frame','Open Grid'],colors:[{name:'Void Black',hex:'#0d0d0d'},{name:'Charcoal',hex:'#2a2a2a'},{name:'Dark Walnut',hex:'#3b2510'},{name:'Slate',hex:'#3a3a4a'},{name:'Warm White',hex:'#f4f0e6'},{name:'Greige',hex:'#b0a898'}]},
+  shelving:{label:'Built-In Shelving',styles:['Open Shelves','Box Niches','Ladder Style','Full Wall'],colors:[{name:'Void Black',hex:'#0d0d0d'},{name:'Charcoal',hex:'#2a2a2a'},{name:'Dark Walnut',hex:'#3b2510'},{name:'Cognac',hex:'#5c3418'},{name:'White Oak',hex:'#c8b89a'},{name:'Cream',hex:'#f0ece2'}]},
+  closet:{label:'Custom Closet System',styles:['Reach-In','Walk-In','Wardrobe','Island + Hanging'],colors:[{name:'Void Black',hex:'#0d0d0d'},{name:'Charcoal',hex:'#2a2a2a'},{name:'Deep Navy',hex:'#1a2035'},{name:'Dark Walnut',hex:'#3b2510'},{name:'Cream',hex:'#f0ece2'},{name:'Light Gray',hex:'#d0cec8'}]}
+};
+const hardware=[{name:'Brushed Gold',hex:'#b8923a'},{name:'Matte Black',hex:'#1a1a1a'},{name:'Satin Nickel',hex:'#a0a09a'},{name:'Oil Bronze',hex:'#4a3520'}];
+let state={room:'kitchen',style:'Flat Slab',colorIdx:0,hwIdx:0,light:false};
+
+function buildControls(){
+  const r=rooms[state.room];
+  const sc=document.getElementById('styleChips');sc.innerHTML='';
+  r.styles.forEach(s=>{const d=document.createElement('div');d.className='chip'+(s===state.style?' active':'');d.textContent=s;d.onclick=()=>{state.style=s;sc.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));d.classList.add('active');render();};sc.appendChild(d);});
+  const cs=document.getElementById('colorSwatches');cs.innerHTML='';
+  r.colors.forEach((c,i)=>{const wrap=document.createElement('div');wrap.style.cssText='display:flex;flex-direction:column;align-items:center;';const sw=document.createElement('div');sw.className='cswatch'+(i===state.colorIdx?' active':'');sw.style.background=c.hex;sw.title=c.name;sw.onclick=()=>{state.colorIdx=i;cs.querySelectorAll('.cswatch').forEach(x=>x.classList.remove('active'));sw.classList.add('active');render();};const lbl=document.createElement('span');lbl.className='cswatch-label';lbl.textContent=c.name;wrap.appendChild(sw);wrap.appendChild(lbl);cs.appendChild(wrap);});
+  const hw=document.getElementById('hwOptions');hw.innerHTML='';
+  hardware.forEach((h,i)=>{const d=document.createElement('div');d.className='hw-opt'+(i===state.hwIdx?' active':'');d.innerHTML=`<div class="hw-circle" style="background:${h.hex};"></div><span class="hw-name">${h.name}</span>`;d.onclick=()=>{state.hwIdx=i;hw.querySelectorAll('.hw-opt').forEach(x=>x.classList.remove('active'));d.classList.add('active');render();};hw.appendChild(d);});
+}
+function setRoom(room,el){state.room=room;state.style=rooms[room].styles[0];state.colorIdx=0;document.querySelectorAll('.room-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');buildControls();render();}
+function toggleLight(){state.light=!state.light;const tr=document.getElementById('lightToggle');const lb=document.getElementById('lightLbl');tr.classList.toggle('on',state.light);lb.textContent=state.light?'On — Warm Glow':'Off';render();}
+function ltn(hex,p){const n=parseInt(hex.slice(1),16);const r=Math.min(255,((n>>16)&255)+p);const g=Math.min(255,((n>>8)&255)+p);const b=Math.min(255,(n&255)+p);return'#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');}
+function drk(hex,p){return ltn(hex,-p);}
+function doorLines(x,y,w,h,style,col){const fill=col.hex;const edge=ltn(fill,18);const shadow=drk(fill,12);let inner='';if(style==='Shaker'){const p=8;inner=`<rect x="${x+p}" y="${y+p}" width="${w-p*2}" height="${h-p*2}" fill="none" stroke="${edge}" stroke-width="1.5" rx="1"/>`;}else if(style==='Raised Panel'){const p=6;inner=`<rect x="${x+p}" y="${y+p}" width="${w-p*2}" height="${h-p*2}" fill="${ltn(fill,10)}" stroke="${edge}" stroke-width="1"/>`;}else if(style==='Beadboard'){let lines='';for(let bx=x+8;bx<x+w-4;bx+=7){lines+=`<line x1="${bx}" y1="${y+4}" x2="${bx}" y2="${y+h-4}" stroke="${edge}" stroke-width="0.7" opacity="0.6"/>`;}inner=lines;}return`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="${shadow}" stroke-width="1" rx="1"/>${inner}`;}
+function hwKnob(cx,cy,hw){return`<circle cx="${cx}" cy="${cy}" r="3.5" fill="${hw.hex}" stroke="${drk(hw.hex,20)}" stroke-width="0.8"/>`;}
+function hwPull(x1,y1,x2,y2,hw){return`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${hw.hex}" stroke-width="2.5" stroke-linecap="round"/>`;}
+function ledGlow(x,y,w){return`<rect x="${x}" y="${y}" width="${w}" height="3" fill="rgba(255,200,80,0.35)" rx="1"/>`;}
+function glowDefs(){return`<defs><linearGradient id="ledGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,200,80,0.5)"/><stop offset="100%" stop-color="rgba(255,200,80,0)"/></linearGradient></defs>`;}
+
+function render(){
+  const r=rooms[state.room];const col=r.colors[state.colorIdx];const hw=hardware[state.hwIdx];
+  const svg=document.getElementById('previewSVG');
+  let content=glowDefs();
+  const wall='#0f0e0c';
+  content+=`<rect width="600" height="420" fill="${wall}"/>`;
+
+  if(state.room==='kitchen'){
+    const floor='#111';const counter='#2a2520';
+    content+=`<rect x="0" y="340" width="600" height="80" fill="${floor}"/>`;
+    content+=`<rect x="50" y="260" width="500" height="18" fill="${counter}" stroke="${ltn(counter,15)}" stroke-width="1"/>`;
+    [[60,70,120,130],[195,70,120,130],[330,70,120,130],[465,70,120,130]].forEach(([x,y,w,h])=>{content+=doorLines(x,y,w,h,state.style,col);if(state.light)content+=ledGlow(x,y+h-2,w);content+=hwKnob(x+w/2,y+h-14,hw);});
+    [[60,278,85,80],[155,278,85,80],[250,278,85,80],[345,278,85,80],[440,278,85,80]].forEach(([x,y,w,h])=>{content+=doorLines(x,y,w,h,state.style,col);content+=hwPull(x+w/2-12,y+h/2,x+w/2+12,y+h/2,hw);});
+    if(state.light)content+=`<rect x="55" y="198" width="490" height="4" fill="rgba(255,200,80,0.6)" rx="1"/>`;
+    content+=`<rect x="55" y="68" width="494" height="1.5" fill="${hw.hex}" opacity="0.6"/>`;
+    content+=`<text x="300" y="410" text-anchor="middle" font-family="Cinzel,serif" font-size="9" letter-spacing="3" fill="rgba(201,168,76,0.5)">KITCHEN · ELITE CUSTOM INTERIORS</text>`;
+  } else if(state.room==='media'){
+    content+=`<rect x="0" y="380" width="600" height="40" fill="${drk(col.hex,50)}"/>`;
+    content+=`<rect x="50" y="30" width="500" height="340" fill="${col.hex}" stroke="${drk(col.hex,15)}" stroke-width="1" rx="2"/>`;
+    content+=`<rect x="155" y="60" width="290" height="190" fill="#050505" stroke="${ltn(col.hex,15)}" stroke-width="2" rx="2"/>`;
+    if(state.light)content+=`<rect x="52" y="32" width="496" height="4" fill="rgba(255,200,80,0.55)" rx="1"/>`;
+    content+=`<rect x="50" y="30" width="500" height="2" fill="${hw.hex}" opacity="0.7"/>`;
+    content+=`<text x="300" y="410" text-anchor="middle" font-family="Cinzel,serif" font-size="9" letter-spacing="3" fill="rgba(201,168,76,0.5)">MEDIA WALL · ELITE CUSTOM INTERIORS</text>`;
+  } else if(state.room==='shelving'){
+    content+=`<rect x="80" y="20" width="16" height="380" fill="${col.hex}" rx="1"/>`;
+    content+=`<rect x="504" y="20" width="16" height="380" fill="${col.hex}" rx="1"/>`;
+    [40,110,180,250,320,390].forEach(sy=>{content+=`<rect x="80" y="${sy}" width="440" height="12" fill="${ltn(col.hex,15)}" rx="1"/>`;if(state.light)content+=`<rect x="80" y="${sy}" width="440" height="3" fill="rgba(255,200,80,0.55)" rx="1"/>`;});
+    content+=`<text x="300" y="414" text-anchor="middle" font-family="Cinzel,serif" font-size="9" letter-spacing="3" fill="rgba(201,168,76,0.5)">SHELVING · ELITE CUSTOM INTERIORS</text>`;
+  } else {
+    [[50,20,155,360],[215,20,155,360],[380,20,170,360]].forEach(([x,y,w,h])=>{content+=doorLines(x,y,w,h,state.style,col);content+=hwKnob(x+w-14,y+h/2,hw);});
+    if(state.light)content+=`<rect x="50" y="20" width="500" height="4" fill="rgba(255,200,80,0.55)" rx="1"/>`;
+    content+=`<rect x="48" y="18" width="504" height="2.5" fill="${hw.hex}" opacity="0.65"/>`;
+    content+=`<text x="300" y="414" text-anchor="middle" font-family="Cinzel,serif" font-size="9" letter-spacing="3" fill="rgba(201,168,76,0.5)">CLOSET · ELITE CUSTOM INTERIORS</text>`;
+  }
+
+  svg.innerHTML=content;
+  document.getElementById('previewSpecs').innerHTML=`
+    <div class="spec-item"><span class="spec-key">Room</span><span class="spec-val">${r.label}</span></div>
+    <div class="spec-item"><span class="spec-key">Style</span><span class="spec-val">${state.style}</span></div>
+    <div class="spec-item"><span class="spec-key">Color</span><span class="spec-val">${col.name}</span></div>
+    <div class="spec-item"><span class="spec-key">Hardware</span><span class="spec-val">${hw.name}</span></div>
+    <div class="spec-item"><span class="spec-key">Lighting</span><span class="spec-val">${state.light?'Warm LED On':'No Lighting'}</span></div>
+    <div class="spec-item"><span class="spec-key">Est. Range</span><span class="spec-val">$5,000–$15,000+</span></div>`;
+  document.getElementById('cfgSummary').textContent=`${r.label} · ${state.style} · ${col.name} · ${hw.name}${state.light?' · LED lighting':''}`;
+}
+
+function bookConfig(){const r=rooms[state.room];const col=r.colors[state.colorIdx];const hw=hardware[state.hwIdx];const val=`${r.label} · ${state.style} · ${col.name} · ${hw.name}${state.light?' · LED lighting':''}`;document.getElementById('configField').style.display='flex';document.getElementById('configVal').value=val;switchTab('consult');}
+function submitForm(e){e.preventDefault();const btn=e.target.querySelector('.btn-sub');btn.textContent="✦ Request Sent — We'll Be In Touch Within 24 Hours";btn.style.background='#2a5c3a';btn.style.color='#fff';btn.disabled=true;}
+
+// INIT
+buildPortfolio('all');
+loadVideos();
+buildControls();
+render();
+</script>
+
+</body>
+</html>
