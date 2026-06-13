@@ -36,9 +36,18 @@
     <div class="sec-sub">Add, remove or recategorize portfolio photos. Changes go live immediately.</div>
 
     <div class="card">
-      <div class="card-title">Add New Photo</div>
+      <div class="card-title">Upload New Photo</div>
+      <div style="border:2px dashed var(--bs);padding:28px;text-align:center;margin-bottom:20px;cursor:pointer;transition:all .3s;background:var(--sf2)" id="drop-zone" onclick="document.getElementById('photo-file').click()" ondragover="event.preventDefault();this.style.borderColor='var(--go)'" ondragleave="this.style.borderColor='var(--bs)'" ondrop="handleDrop(event)">
+        <div style="font-size:2rem;margin-bottom:8px">📸</div>
+        <div style="font-family:Cinzel,serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go);margin-bottom:6px">Tap to Select Photo</div>
+        <div style="font-size:.6rem;color:var(--tm)">or drag and drop · JPG, PNG, WEBP · max 5MB</div>
+        <input type="file" id="photo-file" accept="image/jpeg,image/jpg,image/png,image/webp" style="display:none" onchange="previewPhoto(this)">
+      </div>
+      <div id="photo-preview" style="display:none;margin-bottom:20px;text-align:center">
+        <img id="preview-img" style="max-height:200px;max-width:100%;border:1px solid var(--br);margin-bottom:10px" src="" alt="Preview">
+        <div style="font-size:.6rem;color:var(--tm)" id="preview-name"></div>
+      </div>
       <div class="form-grid">
-        <div class="ifg"><label>Photo URL</label><input type="text" id="new-photo-url" placeholder="https://cdn.jsdelivr.net/gh/..."></div>
         <div class="ifg"><label>Project Title</label><input type="text" id="new-photo-title" placeholder="Custom Media Wall"></div>
         <div class="ifg"><label>Location</label><input type="text" id="new-photo-loc" placeholder="DFW"></div>
         <div class="ifg"><label>Category</label>
@@ -51,9 +60,16 @@
             <option value="specialty">Specialty</option>
           </select>
         </div>
+        <div class="ifg"><label>Photographer Credit (optional)</label><input type="text" id="new-photo-credit" placeholder="Jesus Torres"></div>
       </div>
       <br>
-      <button class="sb" onclick="addPhoto()">Add Photo to Portfolio</button>
+      <button class="sb" onclick="uploadPhoto()" id="upload-btn">Upload Photo to Portfolio</button>
+      <div id="upload-progress" style="display:none;margin-top:12px">
+        <div style="background:var(--sf2);border:1px solid var(--br);height:6px;border-radius:3px;overflow:hidden">
+          <div id="progress-bar" style="height:100%;background:var(--go);width:0%;transition:width .3s"></div>
+        </div>
+        <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="progress-text">Uploading...</div>
+      </div>
     </div>
 
     <div class="card">
@@ -263,10 +279,9 @@ function loadAll() {
 
 // PHOTOS
 let photos = [...DEFAULT_PHOTOS];
+let selectedFile = null;
 
-function loadPhotos() {
-  renderPhotos();
-}
+function loadPhotos() { renderPhotos(); }
 
 function renderPhotos() {
   const g = document.getElementById('photo-grid');
@@ -283,17 +298,110 @@ function renderPhotos() {
   `).join('');
 }
 
-function addPhoto() {
-  const url = document.getElementById('new-photo-url').value.trim();
+function previewPhoto(input) {
+  const file = input.files[0];
+  if(!file) return;
+  if(file.size > 5 * 1024 * 1024) { toast('File too large — max 5MB', false); return; }
+  selectedFile = file;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('preview-img').src = e.target.result;
+    document.getElementById('preview-name').textContent = file.name + ' (' + (file.size/1024).toFixed(0) + 'KB)';
+    document.getElementById('photo-preview').style.display = 'block';
+    document.getElementById('drop-zone').style.borderColor = 'var(--go)';
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('drop-zone').style.borderColor = 'var(--bs)';
+  const file = e.dataTransfer.files[0];
+  if(!file || !file.type.startsWith('image/')) { toast('Please drop an image file', false); return; }
+  const input = document.getElementById('photo-file');
+  const dt = new DataTransfer();
+  dt.items.add(file);
+  input.files = dt.files;
+  previewPhoto(input);
+}
+
+async function uploadPhoto() {
   const title = document.getElementById('new-photo-title').value.trim();
   const loc = document.getElementById('new-photo-loc').value.trim() || 'DFW';
   const cat = document.getElementById('new-photo-cat').value;
-  if(!url || !title) { toast('Please enter a URL and title', false); return; }
-  photos.push({id: Date.now(), url, title, location: loc, category: cat});
-  document.getElementById('new-photo-url').value = '';
-  document.getElementById('new-photo-title').value = '';
-  renderPhotos();
-  toast('Photo added! ✦');
+  
+  if(!selectedFile) { toast('Please select a photo first', false); return; }
+  if(!title) { toast('Please enter a project title', false); return; }
+
+  const btn = document.getElementById('upload-btn');
+  const prog = document.getElementById('upload-progress');
+  const bar = document.getElementById('progress-bar');
+  const txt = document.getElementById('progress-text');
+
+  btn.disabled = true;
+  btn.textContent = 'Uploading...';
+  prog.style.display = 'block';
+  bar.style.width = '20%';
+  txt.textContent = 'Uploading to storage...';
+
+  try {
+    // Upload to Supabase Storage
+    const ext = selectedFile.name.split('.').pop();
+    const filename = `portfolio/${Date.now()}_${title.replace(/[^a-z0-9]/gi,'_').toLowerCase()}.${ext}`;
+    
+    bar.style.width = '50%';
+    
+    const uploadRes = await fetch(`${SB_URL}/storage/v1/object/portfolio/${filename}`, {
+      method: 'POST',
+      headers: {
+        'apikey': SB_KEY,
+        'Authorization': 'Bearer ' + (localStorage.getItem('eci_token') || SB_KEY),
+        'Content-Type': selectedFile.type,
+        'x-upsert': 'true'
+      },
+      body: selectedFile
+    });
+
+    if(!uploadRes.ok) {
+      const err = await uploadRes.json();
+      throw new Error(err.message || 'Upload failed');
+    }
+
+    bar.style.width = '80%';
+    txt.textContent = 'Saving to portfolio...';
+
+    // Get public URL
+    const publicUrl = `${SB_URL}/storage/v1/object/public/portfolio/${filename}`;
+
+    // Add to photos array
+    photos.push({id: Date.now(), url: publicUrl, title, location: loc, category: cat});
+    
+    bar.style.width = '100%';
+    txt.textContent = 'Done!';
+
+    // Reset form
+    setTimeout(() => {
+      selectedFile = null;
+      document.getElementById('photo-file').value = '';
+      document.getElementById('new-photo-title').value = '';
+      document.getElementById('new-photo-loc').value = '';
+      document.getElementById('photo-preview').style.display = 'none';
+      document.getElementById('drop-zone').style.borderColor = 'var(--bs)';
+      prog.style.display = 'none';
+      bar.style.width = '0%';
+      btn.disabled = false;
+      btn.textContent = 'Upload Photo to Portfolio';
+      renderPhotos();
+      toast('Photo uploaded! ✦');
+    }, 1000);
+
+  } catch(e) {
+    toast('Upload failed: ' + e.message, false);
+    btn.disabled = false;
+    btn.textContent = 'Upload Photo to Portfolio';
+    prog.style.display = 'none';
+    console.error(e);
+  }
 }
 
 function deletePhoto(i) {
