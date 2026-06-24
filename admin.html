@@ -262,7 +262,7 @@ async function uploadPhoto(){
     bar.style.width='75%';txt.textContent='Saving to database...';
     const publicUrl=`${SB}/storage/v1/object/public/portfolio/${fname}`;
     const saved=await api('POST','photos',{url:publicUrl,title,location:loc,category:cat});
-    if(saved.error||!saved.length)throw new Error('Database save failed');
+    if(saved.error)throw new Error(saved.error.message||'Database save failed');
     bar.style.width='100%';txt.textContent='Done!';
     setTimeout(()=>{
       selectedFile=null;
