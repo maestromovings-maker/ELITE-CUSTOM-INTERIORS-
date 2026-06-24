@@ -402,7 +402,7 @@ async function importExistingPhotos(){
   if(!confirm('Import all 38 existing photos into the database? Only do this once!'))return;
   
   // Check if already imported
-  const existing=await api('GET','photos','','?select=id&limit=1');
+  const existing=await api('GET','photos','','?select=id&limit=1&order=id.asc');
   if(existing.length){
     if(!confirm('Photos already exist in database. Import anyway? This may create duplicates.'))return;
   }
@@ -413,7 +413,10 @@ async function importExistingPhotos(){
   let done=0;
   for(const p of photos){
     try{
-      await api('POST','photos',p);
+      const h={'apikey':KEY,'Authorization':'Bearer '+authToken,'Content-Type':'application/json','Prefer':'return=representation'};
+      const r=await fetch(SB+'/rest/v1/photos',{method:'POST',headers:h,body:JSON.stringify(p)});
+      const d=await r.json();
+      if(!r.ok)throw new Error(d.message||'Insert failed');
       done++;
       bar.style.width=Math.round((done/photos.length)*100)+'%';
       txt.textContent=`Importing... ${done}/${photos.length}`;
