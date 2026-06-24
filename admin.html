@@ -1,50 +1,44 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ECI Admin Portal</title><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{background:#080808;color:#F0EAD6;font-family:'Raleway',sans-serif;font-weight:300;min-height:100vh}:root{--go:#C9A84C;--gl:#E2C47A;--gd:#7a6530;--sf:#0f0f0f;--sf2:#141414;--tm:#7a7060;--br:rgba(201,168,76,0.2);--bs:rgba(201,168,76,0.55)}#login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}#login-box{background:var(--sf);border:1px solid var(--br);padding:48px 40px;max-width:420px;width:100%;text-align:center}.lb-title{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go);margin-bottom:8px}.lb-sub{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--tm);margin-bottom:40px}.orn{display:flex;align-items:center;gap:12px;color:var(--gd);font-size:.6rem;margin:20px 0}.orn::before,.orn::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gd),transparent)}.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;text-align:left}.fg label{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gd)}.fg input{background:var(--sf2);border:1px solid var(--br);color:#F0EAD6;font-family:'Raleway',sans-serif;font-size:.9rem;padding:12px 14px;outline:none;transition:border-color .3s;width:100%}.fg input:focus{border-color:var(--go)}.fg input::placeholder{color:var(--tm);opacity:.5}.btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;background:var(--go);color:#080808;border:none;padding:14px;cursor:pointer;width:100%;transition:background .3s;margin-top:8px}.btn:hover{background:var(--gl)}.btn-out{background:transparent;color:var(--go);border:1px solid var(--bs);margin-top:8px}.btn-out:hover{background:rgba(201,168,76,0.08)}.err{color:#e05c5c;font-size:.75rem;margin-top:12px;display:none}#admin{display:none;min-height:100vh}#adminbar{background:var(--sf);border-bottom:1px solid var(--br);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}.ab-brand{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go)}.ab-user{font-size:.6rem;letter-spacing:.2em;color:var(--tm)}.ab-right{display:flex;align-items:center;gap:16px}#admin-tabs{display:flex;gap:0;border-bottom:1px solid var(--br);background:var(--sf)}.at{background:none;border:none;border-bottom:2px solid transparent;color:var(--tm);font-family:'Raleway',sans-serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;padding:16px 24px;cursor:pointer;transition:all .3s;white-space:nowrap}.at:hover{color:var(--gl)}.at.on{color:var(--go);border-bottom-color:var(--go);background:rgba(201,168,76,0.04)}.ap{display:none;padding:32px 24px;max-width:1100px;margin:0 auto}.ap.on{display:block}.sec-title{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:var(--go);margin-bottom:8px}.sec-sub{font-size:.75rem;color:var(--tm);margin-bottom:28px;font-style:italic}.card{background:var(--sf);border:1px solid var(--br);padding:24px;margin-bottom:16px}.card-title{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--go);margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.ifg{display:flex;flex-direction:column;gap:5px}.ifg label{font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gd)}.ifg input,.ifg select,.ifg textarea{background:var(--sf2);border:1px solid var(--br);color:#F0EAD6;font-family:'Raleway',sans-serif;font-size:.82rem;padding:10px 12px;outline:none;transition:border-color .3s;width:100%;appearance:none}.ifg input:focus,.ifg select:focus,.ifg textarea:focus{border-color:var(--go)}.ifg input::placeholder{color:var(--tm);opacity:.5}.ifg select option{background:var(--sf)}.ifg textarea{resize:vertical;min-height:80px}.sb{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;background:var(--go);color:#080808;border:none;padding:10px 24px;cursor:pointer;transition:background .3s}.sb:hover{background:var(--gl)}.sb-sm{padding:7px 16px;font-size:.5rem}.db{font-family:'Cinzel',serif;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;background:transparent;color:#e05c5c;border:1px solid rgba(224,92,92,0.4);padding:7px 14px;cursor:pointer;transition:all .3s}.db:hover{background:rgba(224,92,92,0.1)}.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}.photo-item{position:relative;border:1px solid var(--br);overflow:hidden;background:var(--sf2)}.photo-item img{width:100%;height:120px;object-fit:cover;display:block}.photo-item-info{padding:8px}.photo-item-title{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.photo-item-cat{font-size:.48rem;color:var(--tm)}.photo-item-del{position:absolute;top:6px;right:6px;background:rgba(8,8,8,0.85);border:1px solid rgba(224,92,92,0.6);color:#e05c5c;font-size:.6rem;padding:3px 7px;cursor:pointer;transition:all .3s}.photo-item-del:hover{background:rgba(224,92,92,0.2)}.video-item{display:flex;align-items:center;gap:16px;padding:14px;background:var(--sf2);border:1px solid var(--br);margin-bottom:10px}.video-thumb{width:80px;height:45px;object-fit:cover;flex-shrink:0}.video-info{flex:1}.video-title-d{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--go);margin-bottom:3px}.video-sub-d{font-size:.6rem;color:var(--tm)}.status{font-size:.62rem;padding:6px 12px;border-radius:2px;display:inline-block;margin-top:10px}.status.ok{background:rgba(42,92,58,0.3);color:#4caf7d;border:1px solid rgba(76,175,125,0.3)}.status.err{background:rgba(224,92,92,0.15);color:#e05c5c;border:1px solid rgba(224,92,92,0.3)}.loading{color:var(--tm);font-size:.75rem;font-style:italic;padding:20px 0}#toast{position:fixed;bottom:24px;right:24px;background:var(--sf);border:1px solid var(--go);padding:14px 20px;font-size:.72rem;color:var(--go);z-index:999;display:none;animation:slideIn .3s ease}@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}@media(max-width:640px){.form-grid,.form-grid-3{grid-template-columns:1fr}.at{padding:12px 14px;font-size:.5rem}}</style></head><body>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ECI Admin Portal</title><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{background:#080808;color:#F0EAD6;font-family:'Raleway',sans-serif;font-weight:300;min-height:100vh}:root{--go:#C9A84C;--gl:#E2C47A;--gd:#7a6530;--sf:#0f0f0f;--sf2:#141414;--tm:#7a7060;--br:rgba(201,168,76,0.2);--bs:rgba(201,168,76,0.55)}#login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}#login-box{background:var(--sf);border:1px solid var(--br);padding:48px 40px;max-width:420px;width:100%;text-align:center}.lb-title{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go);margin-bottom:8px}.lb-sub{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--tm);margin-bottom:40px}.orn{display:flex;align-items:center;gap:12px;color:var(--gd);font-size:.6rem;margin:20px 0}.orn::before,.orn::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gd),transparent)}.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;text-align:left}.fg label{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gd)}.fg input{background:var(--sf2);border:1px solid var(--br);color:#F0EAD6;font-family:'Raleway',sans-serif;font-size:.9rem;padding:12px 14px;outline:none;transition:border-color .3s;width:100%}.fg input:focus{border-color:var(--go)}.fg input::placeholder{color:var(--tm);opacity:.5}.btn{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;background:var(--go);color:#080808;border:none;padding:14px;cursor:pointer;width:100%;transition:background .3s;margin-top:8px}.btn:hover{background:var(--gl)}.btn-out{background:transparent;color:var(--go);border:1px solid var(--bs);margin-top:8px}.btn-out:hover{background:rgba(201,168,76,0.08)}.err{color:#e05c5c;font-size:.75rem;margin-top:12px;display:none}#admin{display:none;min-height:100vh}#adminbar{background:var(--sf);border-bottom:1px solid var(--br);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}.ab-brand{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go)}.ab-user{font-size:.6rem;letter-spacing:.2em;color:var(--tm)}#admin-tabs{display:flex;gap:0;border-bottom:1px solid var(--br);background:var(--sf);overflow-x:auto;scrollbar-width:none}.at{background:none;border:none;border-bottom:2px solid transparent;color:var(--tm);font-family:'Raleway',sans-serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;padding:16px 20px;cursor:pointer;transition:all .3s;white-space:nowrap}.at:hover{color:var(--gl)}.at.on{color:var(--go);border-bottom-color:var(--go);background:rgba(201,168,76,0.04)}.ap{display:none;padding:32px 24px;max-width:1100px;margin:0 auto}.ap.on{display:block}.sec-title{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;color:var(--go);margin-bottom:8px}.sec-sub{font-size:.75rem;color:var(--tm);margin-bottom:28px;font-style:italic}.card{background:var(--sf);border:1px solid var(--br);padding:24px;margin-bottom:16px}.card-title{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--go);margin-bottom:16px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ifg{display:flex;flex-direction:column;gap:5px}.ifg label{font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gd)}.ifg input,.ifg select,.ifg textarea{background:var(--sf2);border:1px solid var(--br);color:#F0EAD6;font-family:'Raleway',sans-serif;font-size:.82rem;padding:10px 12px;outline:none;transition:border-color .3s;width:100%;appearance:none}.ifg input:focus,.ifg select:focus{border-color:var(--go)}.ifg input::placeholder{color:var(--tm);opacity:.5}.ifg select option{background:var(--sf)}.sb{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;background:var(--go);color:#080808;border:none;padding:10px 24px;cursor:pointer;transition:background .3s}.sb:hover{background:var(--gl)}.db{font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;background:transparent;color:#e05c5c;border:1px solid rgba(224,92,92,0.4);padding:6px 12px;cursor:pointer;transition:all .3s}.db:hover{background:rgba(224,92,92,0.1)}.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}.photo-item{position:relative;border:1px solid var(--br);overflow:hidden;background:var(--sf2)}.photo-item img{width:100%;height:120px;object-fit:cover;display:block}.photo-item-info{padding:8px}.photo-item-title{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.photo-item-cat{font-size:.48rem;color:var(--tm)}.photo-item-del{position:absolute;top:6px;right:6px;background:rgba(8,8,8,0.85);border:1px solid rgba(224,92,92,0.6);color:#e05c5c;font-size:.6rem;padding:3px 7px;cursor:pointer}.video-item{display:flex;align-items:center;gap:16px;padding:14px;background:var(--sf2);border:1px solid var(--br);margin-bottom:10px}.video-thumb{width:80px;height:45px;object-fit:cover;flex-shrink:0}.video-info{flex:1}.video-title-d{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--go);margin-bottom:3px}.video-sub-d{font-size:.6rem;color:var(--tm)}.loading{color:var(--tm);font-size:.75rem;font-style:italic;padding:20px 0}#toast{position:fixed;bottom:24px;right:24px;background:var(--sf);border:1px solid var(--go);padding:14px 20px;font-size:.72rem;color:var(--go);z-index:999;display:none}@media(max-width:640px){.form-grid{grid-template-columns:1fr}.at{padding:12px 14px}}</style></head><body>
 
-<!-- LOGIN -->
-<div id="login">
-  <div id="login-box">
-    <div class="lb-title">Elite Custom Interiors</div>
-    <div class="lb-sub">Admin Portal</div>
-    <div class="orn">✦</div>
-    <div class="fg"><label>Email Address</label><input type="email" id="li-email" placeholder="your@email.com"></div>
-    <div class="fg"><label>Password</label><input type="password" id="li-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <button class="btn" onclick="doLogin()">Sign In</button>
-    <div class="err" id="li-err">Invalid email or password. Please try again.</div>
-  </div>
-</div>
+<div id="login"><div id="login-box">
+  <div class="lb-title">Elite Custom Interiors</div>
+  <div class="lb-sub">Admin Portal</div>
+  <div class="orn">✦</div>
+  <div class="fg"><label>Email</label><input type="email" id="li-email" placeholder="your@email.com"></div>
+  <div class="fg"><label>Password</label><input type="password" id="li-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+  <button class="btn" onclick="doLogin()">Sign In</button>
+  <div class="err" id="li-err">Invalid email or password.</div>
+</div></div>
 
-<!-- ADMIN -->
 <div id="admin">
   <div id="adminbar">
     <div class="ab-brand">ECI Admin Portal</div>
-    <div class="ab-right">
+    <div style="display:flex;align-items:center;gap:16px">
       <span class="ab-user" id="ab-user"></span>
-      <button class="btn btn-out" style="width:auto;padding:6px 16px;margin:0;font-size:.52rem" onclick="doLogout()">Sign Out</button>
+      <button class="btn btn-out" style="width:auto;padding:6px 16px;margin:0;font-size:.5rem" onclick="doLogout()">Sign Out</button>
     </div>
   </div>
-
   <div id="admin-tabs">
-    <button class="at on" onclick="showTab('photos')">📸 Portfolio Photos</button>
-    <button class="at" onclick="showTab('videos')">🎬 Videos</button>
-    <button class="at" onclick="showTab('contact')">📞 Contact & Social</button>
-    <button class="at" onclick="showTab('categories')">🏷️ Categories</button>
+    <button class="at on" onclick="showTab('photos',this)">📸 Portfolio</button>
+    <button class="at" onclick="showTab('videos',this)">🎬 Videos</button>
+    <button class="at" onclick="showTab('contact',this)">📞 Contact</button>
+    <button class="at" onclick="showTab('cats',this)">🏷️ Categories</button>
   </div>
 
-  <!-- PHOTOS TAB -->
+  <!-- PHOTOS -->
   <div class="ap on" id="tab-photos">
     <div class="sec-title">Portfolio Photos</div>
-    <div class="sec-sub">Add, remove or recategorize portfolio photos. Changes go live immediately.</div>
-
+    <div class="sec-sub">Upload photos directly from your device. They appear on the site instantly.</div>
     <div class="card">
       <div class="card-title">Upload New Photo</div>
-      <div style="border:2px dashed var(--bs);padding:28px;text-align:center;margin-bottom:20px;cursor:pointer;transition:all .3s;background:var(--sf2)" id="drop-zone" onclick="document.getElementById('photo-file').click()" ondragover="event.preventDefault();this.style.borderColor='var(--go)'" ondragleave="this.style.borderColor='var(--bs)'" ondrop="handleDrop(event)">
+      <div id="drop-zone" style="border:2px dashed var(--bs);padding:28px;text-align:center;margin-bottom:20px;cursor:pointer;background:var(--sf2)" onclick="document.getElementById('photo-file').click()">
         <div style="font-size:2rem;margin-bottom:8px">📸</div>
         <div style="font-family:Cinzel,serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--go);margin-bottom:6px">Tap to Select Photo</div>
-        <div style="font-size:.6rem;color:var(--tm)">or drag and drop · JPG, PNG, WEBP · max 5MB</div>
+        <div style="font-size:.6rem;color:var(--tm)">JPG, PNG, WEBP · max 5MB</div>
         <input type="file" id="photo-file" accept="image/jpeg,image/jpg,image/png,image/webp" style="display:none" onchange="previewPhoto(this)">
       </div>
       <div id="photo-preview" style="display:none;margin-bottom:20px;text-align:center">
-        <img id="preview-img" style="max-height:200px;max-width:100%;border:1px solid var(--br);margin-bottom:10px" src="" alt="Preview">
+        <img id="preview-img" style="max-height:180px;max-width:100%;border:1px solid var(--br);margin-bottom:8px" src="" alt="Preview">
         <div style="font-size:.6rem;color:var(--tm)" id="preview-name"></div>
       </div>
       <div class="form-grid">
@@ -60,86 +54,83 @@
             <option value="specialty">Specialty</option>
           </select>
         </div>
-        <div class="ifg"><label>Photographer Credit (optional)</label><input type="text" id="new-photo-credit" placeholder="Jesus Torres"></div>
       </div>
       <br>
-      <button class="sb" onclick="uploadPhoto()" id="upload-btn">Upload Photo to Portfolio</button>
-      <div id="upload-progress" style="display:none;margin-top:12px">
-        <div style="background:var(--sf2);border:1px solid var(--br);height:6px;border-radius:3px;overflow:hidden">
-          <div id="progress-bar" style="height:100%;background:var(--go);width:0%;transition:width .3s"></div>
-        </div>
-        <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="progress-text">Uploading...</div>
+      <button class="sb" onclick="uploadPhoto()" id="upload-btn">Upload Photo</button>
+      <div id="upload-prog" style="display:none;margin-top:12px">
+        <div style="background:var(--sf2);border:1px solid var(--br);height:6px;border-radius:3px;overflow:hidden"><div id="prog-bar" style="height:100%;background:var(--go);width:0%;transition:width .3s"></div></div>
+        <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="prog-txt">Uploading...</div>
       </div>
     </div>
-
+    <div class="card" id="import-card">
+      <div class="card-title">⚡ Import Existing Photos</div>
+      <p style="font-size:.72rem;color:var(--tm);margin-bottom:16px;line-height:1.6">First time setup only. Tap the button below to import all 25+ existing portfolio photos into the database. Do this once before switching the live site to Supabase.</p>
+      <button class="sb" onclick="importExistingPhotos()" id="import-btn" style="background:#2a5c3a;color:#fff">Import All Existing Photos Into Database</button>
+      <div id="import-progress" style="display:none;margin-top:12px">
+        <div style="background:var(--sf2);border:1px solid var(--br);height:6px;border-radius:3px;overflow:hidden"><div id="import-bar" style="height:100%;background:var(--go);width:0%;transition:width .3s"></div></div>
+        <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="import-txt">Importing...</div>
+      </div>
+    </div>
     <div class="card">
       <div class="card-title">Current Portfolio <span id="photo-count" style="color:var(--tm);font-size:.6rem"></span></div>
       <div id="photo-grid" class="photo-grid"><div class="loading">Loading photos...</div></div>
     </div>
   </div>
 
-  <!-- VIDEOS TAB -->
+  <!-- VIDEOS -->
   <div class="ap" id="tab-videos">
     <div class="sec-title">Videos</div>
-    <div class="sec-sub">Manage YouTube videos shown in the Our Work section.</div>
-
+    <div class="sec-sub">Add YouTube videos to the Our Work section. Paste the full YouTube link.</div>
     <div class="card">
       <div class="card-title">Add New Video</div>
       <div class="form-grid">
-        <div class="ifg"><label>YouTube Video ID</label><input type="text" id="new-vid-id" placeholder="dQw4w9WgXcQ"><small style="color:var(--tm);font-size:.58rem">The part after youtube.com/watch?v=</small></div>
+        <div class="ifg"><label>YouTube Link</label><input type="text" id="new-vid-url" placeholder="https://youtu.be/xxxxx or full URL"></div>
         <div class="ifg"><label>Video Title</label><input type="text" id="new-vid-title" placeholder="Cowboys Build Showcase"></div>
-        <div class="ifg" style="grid-column:span 2"><label>Subtitle / Description</label><input type="text" id="new-vid-sub" placeholder="Full Project · DFW"></div>
+        <div class="ifg" style="grid-column:span 2"><label>Subtitle</label><input type="text" id="new-vid-sub" placeholder="Full Project · DFW"></div>
       </div>
       <br>
       <button class="sb" onclick="addVideo()">Add Video</button>
     </div>
-
     <div class="card">
       <div class="card-title">Current Videos</div>
       <div id="video-list"><div class="loading">Loading videos...</div></div>
     </div>
   </div>
 
-  <!-- CONTACT TAB -->
+  <!-- CONTACT -->
   <div class="ap" id="tab-contact">
     <div class="sec-title">Contact & Social Media</div>
-    <div class="sec-sub">Update contact information and social media links. Changes go live immediately.</div>
-
+    <div class="sec-sub">Update contact information and social links. Tap Save to apply changes.</div>
     <div class="card">
       <div class="card-title">Contact Information</div>
       <div class="form-grid">
-        <div class="ifg"><label>Phone Number</label><input type="text" id="c-phone" placeholder="469-659-1912"></div>
-        <div class="ifg"><label>Email Address</label><input type="text" id="c-email" placeholder="Elite.Interiors1912@Gmail.com"></div>
+        <div class="ifg"><label>Phone</label><input type="text" id="c-phone" placeholder="469-659-1912"></div>
+        <div class="ifg"><label>Email</label><input type="text" id="c-email" placeholder="Elite.Interiors1912@Gmail.com"></div>
         <div class="ifg"><label>Service Area</label><input type="text" id="c-area" placeholder="Dallas - Fort Worth Metroplex"></div>
         <div class="ifg"><label>Tagline</label><input type="text" id="c-tagline" placeholder="Crafted with Precision."></div>
       </div>
-      <br>
-      <button class="sb" onclick="saveContact()">Save Contact Info</button>
+      <br><button class="sb" onclick="saveSetting('contact')">Save Contact Info</button>
     </div>
-
     <div class="card">
-      <div class="card-title">Social Media Links</div>
+      <div class="card-title">Social Media</div>
       <div class="form-grid">
-        <div class="ifg"><label>Instagram URL</label><input type="text" id="c-ig" placeholder="https://instagram.com/..."></div>
-        <div class="ifg"><label>Facebook URL</label><input type="text" id="c-fb" placeholder="https://facebook.com/..."></div>
-        <div class="ifg"><label>TikTok URL</label><input type="text" id="c-tt" placeholder="https://tiktok.com/..."></div>
-        <div class="ifg"><label>YouTube URL (optional)</label><input type="text" id="c-yt" placeholder="https://youtube.com/..."></div>
+        <div class="ifg"><label>Instagram URL</label><input type="text" id="c-ig"></div>
+        <div class="ifg"><label>Facebook URL</label><input type="text" id="c-fb"></div>
+        <div class="ifg"><label>TikTok URL</label><input type="text" id="c-tt"></div>
+        <div class="ifg"><label>YouTube URL</label><input type="text" id="c-yt"></div>
       </div>
-      <br>
-      <button class="sb" onclick="saveSocial()">Save Social Links</button>
+      <br><button class="sb" onclick="saveSetting('social')">Save Social Links</button>
     </div>
   </div>
 
-  <!-- CATEGORIES TAB -->
-  <div class="ap" id="tab-categories">
+  <!-- CATEGORIES -->
+  <div class="ap" id="tab-cats">
     <div class="sec-title">Portfolio Categories</div>
-    <div class="sec-sub">Rename or toggle visibility of portfolio filter categories.</div>
-
+    <div class="sec-sub">Rename or show/hide filter categories in the Our Work section.</div>
     <div class="card">
       <div class="card-title">Manage Categories</div>
-      <div id="cat-list"><div class="loading">Loading categories...</div></div>
-      <br>
-      <button class="sb" onclick="saveCategories()">Save Category Changes</button>
+      <div id="cat-list"><div class="loading">Loading...</div></div>
+      <br><button class="sb" onclick="saveCategories()">Save Changes</button>
     </div>
   </div>
 </div>
@@ -147,40 +138,10 @@
 <div id="toast"></div>
 
 <script>
-const SB_URL = "https://zhnzetzimveumtjvbhrp.supabase.co";
-const SB_KEY = "sb_publishable_Z4h-ECpKnCyfwu-jIswJUQ_DGwLzMKO";
-
-// Default data (used if Supabase tables are empty)
-const DEFAULT_PHOTOS = [
-  {id:1,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/E92BB221-.jpeg",title:"Marble & Oak Media Wall",location:"DFW",category:"media"},
-  {id:2,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4625.jpeg",title:"Dark Slat & Marble Media Wall",location:"DFW",category:"media"},
-  {id:3,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3513.jpeg",title:"Black & Gold Geometric Feature Wall",location:"DFW",category:"media"},
-  {id:4,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4645.jpeg",title:"Slat Wood Fireplace & Media Wall",location:"DFW",category:"media"},
-  {id:5,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4712.png",title:"Dark Built-In Shelving Wall",location:"DFW",category:"media"},
-  {id:6,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3531.jpeg",title:"Wave Sculptural Wall",location:"DFW",category:"millwork"},
-  {id:7,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2458.png",title:"Black & Gold Plaid Millwork",location:"DFW",category:"millwork"},
-  {id:8,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2457.png",title:"Sage Grid Panel Wall",location:"DFW",category:"millwork"},
-  {id:9,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_1396.jpeg",title:"Two-Story Shiplap Feature Wall",location:"DFW",category:"millwork"},
-  {id:10,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_5869_Original.jpeg",title:"Grand Staircase Molding Wall",location:"DFW",category:"millwork"},
-  {id:11,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/71278144931__6BA28270-8EBD-420D-B525-DB660AE5E05E_Original.jpeg",title:"Teal Coffered Ceiling",location:"DFW",category:"ceiling"},
-  {id:12,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4553.png",title:"Ornate Coffered Ceiling with LED",location:"DFW",category:"ceiling"},
-  {id:13,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4427.jpeg",title:"Arched Built-In Shelving",location:"DFW",category:"cabinetry"},
-  {id:14,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4426.jpeg",title:"Double Arched Fireplace Built-Ins",location:"DFW",category:"cabinetry"},
-  {id:15,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3942.jpeg",title:"Custom Walk-In Pantry Shelving",location:"DFW",category:"cabinetry"},
-  {id:16,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2500.jpeg",title:"Sage Custom Cabinetry",location:"Flower Mound, TX",category:"cabinetry"},
-  {id:17,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2461.png",title:"White Glass-Door Cabinetry",location:"DFW",category:"cabinetry"},
-  {id:18,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3933.jpeg",title:"Luxury Walk-In Closet System",location:"DFW",category:"cabinetry"},
-  {id:19,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_6074_Original.jpeg",title:"Dallas Cowboys Fan Room",location:"DFW",category:"specialty"},
-  {id:20,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/20230319_101706_Original.jpeg",title:"Dallas Cowboys Garage Build",location:"DFW",category:"specialty"},
-  {id:21,url:"https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4374.jpeg",title:"Custom Kids Room Cloud Wall",location:"DFW",category:"specialty"},
-];
-
-const DEFAULT_VIDEOS = [
-  {id:1,youtube_id:"2dBnqgTtT2M",title:"Elite Custom Interiors — Cowboys Build",subtitle:"Full Project Showcase · DFW"},
-  {id:2,youtube_id:"yQIFV4k8raI",title:"Elite Custom Interiors — Project Showcase",subtitle:"Custom Carpentry · DFW"},
-];
-
-const DEFAULT_CATS = [
+const SB="https://zhnzetzimveumtjvbhrp.supabase.co",KEY="sb_publishable_Z4h-ECpKnCyfwu-jIswJUQ_DGwLzMKO";
+let authToken=localStorage.getItem('eci_token')||KEY;
+let selectedFile=null;
+let cats=[
   {id:1,key:"media",label:"Media Walls",visible:true},
   {id:2,key:"millwork",label:"Millwork",visible:true},
   {id:3,key:"ceiling",label:"Ceilings",visible:true},
@@ -189,332 +150,296 @@ const DEFAULT_CATS = [
   {id:6,key:"specialty",label:"Specialty",visible:true},
 ];
 
-const DEFAULT_CONTACT = {
-  phone:"469-659-1912",
-  email:"Elite.Interiors1912@Gmail.com",
-  area:"Dallas - Fort Worth Metroplex",
-  tagline:"Crafted with Precision.",
-  instagram:"https://www.instagram.com/elite.custom.interiors",
-  facebook:"https://www.facebook.com/share/18CGHye76F/",
-  tiktok:"https://www.tiktok.com/@elite.custom.inte",
-  youtube:""
-};
-
-// Supabase API helper
-async function sb(method, table, body=null, query='') {
-  const opts = {
-    method,
-    headers: {
-      'apikey': SB_KEY,
-      'Authorization': 'Bearer ' + SB_KEY,
-      'Content-Type': 'application/json',
-      'Prefer': method==='POST' ? 'return=representation' : ''
-    }
-  };
-  if(body) opts.body = JSON.stringify(body);
-  const r = await fetch(`${SB_URL}/rest/v1/${table}${query}`, opts);
-  if(r.status === 204) return [];
-  return r.json();
+// API helper
+async function api(method,table,body=null,query=''){
+  const h={'apikey':KEY,'Authorization':'Bearer '+authToken,'Content-Type':'application/json'};
+  if(method==='POST'||method==='PATCH')h['Prefer']='return=representation';
+  const r=await fetch(`${SB}/rest/v1/${table}${query}`,{method,headers:h,body:body?JSON.stringify(body):null});
+  if(r.status===204)return[];
+  const d=await r.json();
+  return d;
 }
 
-// Toast notification
-function toast(msg, ok=true) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.borderColor = ok ? 'var(--go)' : '#e05c5c';
-  t.style.color = ok ? 'var(--go)' : '#e05c5c';
-  t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 3000);
+// Toast
+function toast(msg,ok=true){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.style.borderColor=ok?'var(--go)':'#e05c5c';t.style.color=ok?'var(--go)':'#e05c5c';
+  t.style.display='block';setTimeout(()=>t.style.display='none',3000);
 }
 
 // AUTH
-let currentUser = null;
-
-async function doLogin() {
-  const email = document.getElementById('li-email').value.trim();
-  const pass = document.getElementById('li-pass').value;
-  const err = document.getElementById('li-err');
-  err.style.display = 'none';
-
-  try {
-    const r = await fetch(`${SB_URL}/auth/v1/token?grant_type=password`, {
-      method: 'POST',
-      headers: {'apikey': SB_KEY, 'Content-Type': 'application/json'},
-      body: JSON.stringify({email, password: pass})
-    });
-    const data = await r.json();
-    if(data.error) { err.style.display = 'block'; return; }
-    currentUser = data.user;
-    localStorage.setItem('eci_token', data.access_token);
-    document.getElementById('ab-user').textContent = email;
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('admin').style.display = 'block';
+async function doLogin(){
+  const email=document.getElementById('li-email').value.trim();
+  const pass=document.getElementById('li-pass').value;
+  const err=document.getElementById('li-err');
+  err.style.display='none';
+  try{
+    const r=await fetch(`${SB}/auth/v1/token?grant_type=password`,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
+    const d=await r.json();
+    if(d.error||!d.access_token){err.style.display='block';return;}
+    authToken=d.access_token;
+    localStorage.setItem('eci_token',authToken);
+    document.getElementById('ab-user').textContent=email;
+    document.getElementById('login').style.display='none';
+    document.getElementById('admin').style.display='block';
     loadAll();
-  } catch(e) {
-    err.style.display = 'block';
-  }
+  }catch(e){err.style.display='block';}
 }
 
-function doLogout() {
+function doLogout(){
   localStorage.removeItem('eci_token');
-  document.getElementById('login').style.display = 'flex';
-  document.getElementById('admin').style.display = 'none';
+  authToken=KEY;
+  document.getElementById('login').style.display='flex';
+  document.getElementById('admin').style.display='none';
 }
 
-// TAB SWITCHING
-function showTab(id) {
-  document.querySelectorAll('.ap').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.at').forEach(b => b.classList.remove('on'));
-  document.getElementById('tab-' + id).classList.add('on');
-  event.target.classList.add('on');
+function showTab(id,btn){
+  document.querySelectorAll('.ap').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.at').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  btn.classList.add('on');
 }
 
-// LOAD ALL DATA
-function loadAll() {
-  loadPhotos();
-  loadVideos();
-  loadContact();
-  loadCategories();
+async function loadAll(){
+  loadPhotos();loadVideos();loadContact();loadCats();
 }
 
 // PHOTOS
-let photos = [...DEFAULT_PHOTOS];
-let selectedFile = null;
-
-function loadPhotos() { renderPhotos(); }
-
-function renderPhotos() {
-  const g = document.getElementById('photo-grid');
-  document.getElementById('photo-count').textContent = `(${photos.length} photos)`;
-  g.innerHTML = photos.map((p,i) => `
-    <div class="photo-item">
-      <img src="${p.url}" alt="${p.title}" loading="lazy" onerror="this.style.background='#1a1a1a';this.style.height='120px'">
-      <div class="photo-item-info">
-        <div class="photo-item-title">${p.title}</div>
-        <div class="photo-item-cat">${p.category} · ${p.location}</div>
-      </div>
-      <button class="photo-item-del" onclick="deletePhoto(${i})">✕</button>
-    </div>
-  `).join('');
+async function loadPhotos(){
+  const g=document.getElementById('photo-grid');
+  g.innerHTML='<div class="loading">Loading photos...</div>';
+  try{
+    const photos=await api('GET','photos','',`?order=created_at.desc`);
+    document.getElementById('photo-count').textContent=`(${photos.length} photos)`;
+    if(!photos.length){g.innerHTML='<div class="loading">No photos yet. Upload your first one!</div>';return;}
+    g.innerHTML=photos.map(p=>`
+      <div class="photo-item">
+        <img src="${p.url}" alt="${p.title}" loading="lazy" onerror="this.style.background='#1a1a1a'">
+        <div class="photo-item-info">
+          <div class="photo-item-title">${p.title}</div>
+          <div class="photo-item-cat">${p.category} · ${p.location}</div>
+        </div>
+        <button class="photo-item-del" onclick="deletePhoto(${p.id})">✕</button>
+      </div>`).join('');
+  }catch(e){g.innerHTML='<div class="loading">Error loading photos.</div>';}
 }
 
-function previewPhoto(input) {
-  const file = input.files[0];
-  if(!file) return;
-  if(file.size > 5 * 1024 * 1024) { toast('File too large — max 5MB', false); return; }
-  selectedFile = file;
-  const reader = new FileReader();
-  reader.onload = e => {
-    document.getElementById('preview-img').src = e.target.result;
-    document.getElementById('preview-name').textContent = file.name + ' (' + (file.size/1024).toFixed(0) + 'KB)';
-    document.getElementById('photo-preview').style.display = 'block';
-    document.getElementById('drop-zone').style.borderColor = 'var(--go)';
+function previewPhoto(input){
+  const file=input.files[0];
+  if(!file)return;
+  if(file.size>5*1024*1024){toast('File too large — max 5MB',false);return;}
+  selectedFile=file;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    document.getElementById('preview-img').src=e.target.result;
+    document.getElementById('preview-name').textContent=file.name+' ('+(file.size/1024).toFixed(0)+'KB)';
+    document.getElementById('photo-preview').style.display='block';
   };
   reader.readAsDataURL(file);
 }
 
-function handleDrop(e) {
-  e.preventDefault();
-  document.getElementById('drop-zone').style.borderColor = 'var(--bs)';
-  const file = e.dataTransfer.files[0];
-  if(!file || !file.type.startsWith('image/')) { toast('Please drop an image file', false); return; }
-  const input = document.getElementById('photo-file');
-  const dt = new DataTransfer();
-  dt.items.add(file);
-  input.files = dt.files;
-  previewPhoto(input);
-}
-
-async function uploadPhoto() {
-  const title = document.getElementById('new-photo-title').value.trim();
-  const loc = document.getElementById('new-photo-loc').value.trim() || 'DFW';
-  const cat = document.getElementById('new-photo-cat').value;
-  
-  if(!selectedFile) { toast('Please select a photo first', false); return; }
-  if(!title) { toast('Please enter a project title', false); return; }
-
-  const btn = document.getElementById('upload-btn');
-  const prog = document.getElementById('upload-progress');
-  const bar = document.getElementById('progress-bar');
-  const txt = document.getElementById('progress-text');
-
-  btn.disabled = true;
-  btn.textContent = 'Uploading...';
-  prog.style.display = 'block';
-  bar.style.width = '20%';
-  txt.textContent = 'Uploading to storage...';
-
-  try {
-    // Upload to Supabase Storage
-    const ext = selectedFile.name.split('.').pop();
-    const filename = `portfolio/${Date.now()}_${title.replace(/[^a-z0-9]/gi,'_').toLowerCase()}.${ext}`;
-    
-    bar.style.width = '50%';
-    
-    const uploadRes = await fetch(`${SB_URL}/storage/v1/object/portfolio/${filename}`, {
-      method: 'POST',
-      headers: {
-        'apikey': SB_KEY,
-        'Authorization': 'Bearer ' + (localStorage.getItem('eci_token') || SB_KEY),
-        'Content-Type': selectedFile.type,
-        'x-upsert': 'true'
-      },
-      body: selectedFile
+async function uploadPhoto(){
+  const title=document.getElementById('new-photo-title').value.trim();
+  const loc=document.getElementById('new-photo-loc').value.trim()||'DFW';
+  const cat=document.getElementById('new-photo-cat').value;
+  if(!selectedFile){toast('Please select a photo first',false);return;}
+  if(!title){toast('Please enter a project title',false);return;}
+  const btn=document.getElementById('upload-btn');
+  const prog=document.getElementById('upload-prog');
+  const bar=document.getElementById('prog-bar');
+  const txt=document.getElementById('prog-txt');
+  btn.disabled=true;btn.textContent='Uploading...';prog.style.display='block';bar.style.width='20%';
+  try{
+    const ext=selectedFile.name.split('.').pop().toLowerCase();
+    const fname=`${Date.now()}_${title.replace(/[^a-z0-9]/gi,'_').toLowerCase()}.${ext}`;
+    bar.style.width='50%';txt.textContent='Uploading image...';
+    const up=await fetch(`${SB}/storage/v1/object/portfolio/${fname}`,{
+      method:'POST',
+      headers:{'apikey':KEY,'Authorization':'Bearer '+authToken,'Content-Type':selectedFile.type,'x-upsert':'true'},
+      body:selectedFile
     });
-
-    if(!uploadRes.ok) {
-      const err = await uploadRes.json();
-      throw new Error(err.message || 'Upload failed');
-    }
-
-    bar.style.width = '80%';
-    txt.textContent = 'Saving to portfolio...';
-
-    // Get public URL
-    const publicUrl = `${SB_URL}/storage/v1/object/public/portfolio/${filename}`;
-
-    // Add to photos array
-    photos.push({id: Date.now(), url: publicUrl, title, location: loc, category: cat});
-    
-    bar.style.width = '100%';
-    txt.textContent = 'Done!';
-
-    // Reset form
-    setTimeout(() => {
-      selectedFile = null;
-      document.getElementById('photo-file').value = '';
-      document.getElementById('new-photo-title').value = '';
-      document.getElementById('new-photo-loc').value = '';
-      document.getElementById('photo-preview').style.display = 'none';
-      document.getElementById('drop-zone').style.borderColor = 'var(--bs)';
-      prog.style.display = 'none';
-      bar.style.width = '0%';
-      btn.disabled = false;
-      btn.textContent = 'Upload Photo to Portfolio';
-      renderPhotos();
-      toast('Photo uploaded! ✦');
-    }, 1000);
-
-  } catch(e) {
-    toast('Upload failed: ' + e.message, false);
-    btn.disabled = false;
-    btn.textContent = 'Upload Photo to Portfolio';
-    prog.style.display = 'none';
-    console.error(e);
+    if(!up.ok){const e=await up.json();throw new Error(e.message||'Storage upload failed');}
+    bar.style.width='75%';txt.textContent='Saving to database...';
+    const publicUrl=`${SB}/storage/v1/object/public/portfolio/${fname}`;
+    const saved=await api('POST','photos',{url:publicUrl,title,location:loc,category:cat});
+    if(saved.error||!saved.length)throw new Error('Database save failed');
+    bar.style.width='100%';txt.textContent='Done!';
+    setTimeout(()=>{
+      selectedFile=null;
+      document.getElementById('photo-file').value='';
+      document.getElementById('new-photo-title').value='';
+      document.getElementById('new-photo-loc').value='';
+      document.getElementById('photo-preview').style.display='none';
+      prog.style.display='none';bar.style.width='0%';
+      btn.disabled=false;btn.textContent='Upload Photo';
+      loadPhotos();toast('Photo uploaded! ✦');
+    },1000);
+  }catch(e){
+    toast('Upload failed: '+e.message,false);
+    btn.disabled=false;btn.textContent='Upload Photo';prog.style.display='none';
   }
 }
 
-function deletePhoto(i) {
-  if(!confirm('Remove this photo from the portfolio?')) return;
-  photos.splice(i, 1);
-  renderPhotos();
-  toast('Photo removed.');
+async function deletePhoto(id){
+  if(!confirm('Remove this photo from the portfolio?'))return;
+  await api('DELETE','photos','',`?id=eq.${id}`);
+  loadPhotos();toast('Photo removed.');
 }
 
 // VIDEOS
-let videos = [...DEFAULT_VIDEOS];
-
-function loadVideos() { renderVideos(); }
-
-function renderVideos() {
-  const g = document.getElementById('video-list');
-  g.innerHTML = videos.map((v,i) => `
-    <div class="video-item">
-      <img class="video-thumb" src="https://img.youtube.com/vi/${v.youtube_id}/mqdefault.jpg" alt="${v.title}">
-      <div class="video-info">
-        <div class="video-title-d">${v.title}</div>
-        <div class="video-sub-d">${v.subtitle}</div>
-        <div style="font-size:.56rem;color:var(--gd);margin-top:4px">ID: ${v.youtube_id}</div>
-      </div>
-      <button class="db" onclick="deleteVideo(${i})">Remove</button>
-    </div>
-  `).join('') || '<div class="loading">No videos added yet.</div>';
+async function loadVideos(){
+  const g=document.getElementById('video-list');
+  g.innerHTML='<div class="loading">Loading...</div>';
+  try{
+    const vids=await api('GET','videos','',`?order=created_at.desc`);
+    if(!vids.length){g.innerHTML='<div class="loading">No videos yet.</div>';return;}
+    g.innerHTML=vids.map(v=>`
+      <div class="video-item">
+        <img class="video-thumb" src="https://img.youtube.com/vi/${v.youtube_id}/mqdefault.jpg" alt="${v.title}">
+        <div class="video-info">
+          <div class="video-title-d">${v.title}</div>
+          <div class="video-sub-d">${v.subtitle}</div>
+          <div style="font-size:.54rem;color:var(--gd);margin-top:4px">ID: ${v.youtube_id}</div>
+        </div>
+        <button class="db" onclick="deleteVideo(${v.id})">Remove</button>
+      </div>`).join('');
+  }catch(e){g.innerHTML='<div class="loading">Error loading videos.</div>';}
 }
 
-function addVideo() {
-  let id = document.getElementById('new-vid-id').value.trim();
-  const title = document.getElementById('new-vid-title').value.trim();
-  const sub = document.getElementById('new-vid-sub').value.trim();
-  if(!id || !title) { toast('Please enter a video ID and title', false); return; }
-  if(id.includes('youtube.com')) id = new URL(id).searchParams.get('v') || id;
-  if(id.includes('youtu.be')) id = id.split('/').pop().split('?')[0];
-  videos.push({id: Date.now(), youtube_id: id, title, subtitle: sub});
-  document.getElementById('new-vid-id').value = '';
-  document.getElementById('new-vid-title').value = '';
-  document.getElementById('new-vid-sub').value = '';
-  renderVideos();
-  toast('Video added! ✦');
+async function addVideo(){
+  let url=document.getElementById('new-vid-url').value.trim();
+  const title=document.getElementById('new-vid-title').value.trim();
+  const sub=document.getElementById('new-vid-sub').value.trim();
+  if(!url||!title){toast('Please enter a YouTube link and title',false);return;}
+  // Extract YouTube ID from any format
+  let vid_id=url;
+  if(url.includes('youtu.be/'))vid_id=url.split('youtu.be/')[1].split('?')[0];
+  else if(url.includes('watch?v='))vid_id=new URLSearchParams(url.split('?')[1]).get('v');
+  else if(url.includes('youtube.com/shorts/'))vid_id=url.split('shorts/')[1].split('?')[0];
+  const saved=await api('POST','videos',{youtube_id:vid_id,title,subtitle:sub||'DFW'});
+  if(saved.error){toast('Error saving video',false);return;}
+  document.getElementById('new-vid-url').value='';
+  document.getElementById('new-vid-title').value='';
+  document.getElementById('new-vid-sub').value='';
+  loadVideos();toast('Video added! ✦');
 }
 
-function deleteVideo(i) {
-  if(!confirm('Remove this video?')) return;
-  videos.splice(i, 1);
-  renderVideos();
-  toast('Video removed.');
+async function deleteVideo(id){
+  if(!confirm('Remove this video?'))return;
+  await api('DELETE','videos','',`?id=eq.${id}`);
+  loadVideos();toast('Video removed.');
 }
 
-// CONTACT
-let contact = {...DEFAULT_CONTACT};
-
-function loadContact() {
-  document.getElementById('c-phone').value = contact.phone;
-  document.getElementById('c-email').value = contact.email;
-  document.getElementById('c-area').value = contact.area;
-  document.getElementById('c-tagline').value = contact.tagline;
-  document.getElementById('c-ig').value = contact.instagram;
-  document.getElementById('c-fb').value = contact.facebook;
-  document.getElementById('c-tt').value = contact.tiktok;
-  document.getElementById('c-yt').value = contact.youtube;
+// CONTACT/SETTINGS
+async function loadContact(){
+  try{
+    const rows=await api('GET','settings','',`?order=key`);
+    const s={};rows.forEach(r=>s[r.key]=r.value);
+    document.getElementById('c-phone').value=s.phone||'469-659-1912';
+    document.getElementById('c-email').value=s.email||'Elite.Interiors1912@Gmail.com';
+    document.getElementById('c-area').value=s.area||'Dallas - Fort Worth Metroplex';
+    document.getElementById('c-tagline').value=s.tagline||'Crafted with Precision.';
+    document.getElementById('c-ig').value=s.instagram||'https://www.instagram.com/elite.custom.interiors';
+    document.getElementById('c-fb').value=s.facebook||'https://www.facebook.com/share/18CGHye76F/';
+    document.getElementById('c-tt').value=s.tiktok||'https://www.tiktok.com/@elite.custom.inte';
+    document.getElementById('c-yt').value=s.youtube||'';
+  }catch(e){}
 }
 
-function saveContact() {
-  contact.phone = document.getElementById('c-phone').value;
-  contact.email = document.getElementById('c-email').value;
-  contact.area = document.getElementById('c-area').value;
-  contact.tagline = document.getElementById('c-tagline').value;
-  toast('Contact info saved! ✦');
-}
-
-function saveSocial() {
-  contact.instagram = document.getElementById('c-ig').value;
-  contact.facebook = document.getElementById('c-fb').value;
-  contact.tiktok = document.getElementById('c-tt').value;
-  contact.youtube = document.getElementById('c-yt').value;
-  toast('Social links saved! ✦');
+async function saveSetting(type){
+  const pairs=type==='contact'?[
+    ['phone',document.getElementById('c-phone').value],
+    ['email',document.getElementById('c-email').value],
+    ['area',document.getElementById('c-area').value],
+    ['tagline',document.getElementById('c-tagline').value],
+  ]:[
+    ['instagram',document.getElementById('c-ig').value],
+    ['facebook',document.getElementById('c-fb').value],
+    ['tiktok',document.getElementById('c-tt').value],
+    ['youtube',document.getElementById('c-yt').value],
+  ];
+  for(const[key,value]of pairs){
+    const existing=await api('GET','settings','',`?key=eq.${key}`);
+    if(existing.length)await api('PATCH','settings',{value},`?key=eq.${key}`);
+    else await api('POST','settings',{key,value});
+  }
+  toast('Saved! ✦');
 }
 
 // CATEGORIES
-let cats = [...DEFAULT_CATS];
-
-function loadCategories() {
-  const g = document.getElementById('cat-list');
-  g.innerHTML = cats.map((c,i) => `
+function loadCats(){
+  const g=document.getElementById('cat-list');
+  g.innerHTML=cats.map((c,i)=>`
     <div style="display:flex;align-items:center;gap:16px;padding:14px;background:var(--sf2);border:1px solid var(--br);margin-bottom:8px">
       <div style="flex:1">
-        <div style="font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);margin-bottom:5px">Display Name</div>
+        <div style="font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);margin-bottom:5px">Display Name</div>
         <input type="text" value="${c.label}" onchange="cats[${i}].label=this.value" style="background:#080808;border:1px solid var(--br);color:#F0EAD6;font-family:Raleway,sans-serif;font-size:.82rem;padding:8px 10px;outline:none;width:200px">
       </div>
       <div style="display:flex;align-items:center;gap:10px">
-        <span style="font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tm)">Visible</span>
-        <div onclick="cats[${i}].visible=!cats[${i}].visible;loadCategories()" style="width:36px;height:20px;background:${c.visible ? 'rgba(201,168,76,0.2)' : 'var(--sf2)'};border:1px solid ${c.visible ? 'var(--go)' : 'var(--br)'};border-radius:10px;cursor:pointer;position:relative;transition:all .3s">
-          <div style="position:absolute;top:2px;left:${c.visible ? '16px' : '2px'};width:14px;height:14px;background:${c.visible ? 'var(--go)' : 'var(--tm)'};border-radius:50%;transition:all .3s"></div>
+        <span style="font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tm)">Visible</span>
+        <div onclick="cats[${i}].visible=!cats[${i}].visible;loadCats()" style="width:36px;height:20px;background:${c.visible?'rgba(201,168,76,0.2)':'var(--sf2)'};border:1px solid ${c.visible?'var(--go)':'var(--br)'};border-radius:10px;cursor:pointer;position:relative;transition:all .3s">
+          <div style="position:absolute;top:2px;left:${c.visible?'16px':'2px'};width:14px;height:14px;background:${c.visible?'var(--go)':'var(--tm)'};border-radius:50%;transition:all .3s"></div>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-function saveCategories() {
+async function saveCategories(){
+  const val=JSON.stringify(cats);
+  const existing=await api('GET','settings','',`?key=eq.categories`);
+  if(existing.length)await api('PATCH','settings',{value:val},`?key=eq.categories`);
+  else await api('POST','settings',{key:'categories',value:val});
   toast('Categories saved! ✦');
 }
 
-// Check for existing session
-window.onload = () => {
-  const token = localStorage.getItem('eci_token');
-  if(token) {
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('admin').style.display = 'block';
-    document.getElementById('ab-user').textContent = 'Admin';
+
+async function importExistingPhotos(){
+  const btn=document.getElementById('import-btn');
+  const prog=document.getElementById('import-progress');
+  const bar=document.getElementById('import-bar');
+  const txt=document.getElementById('import-txt');
+  
+  if(!confirm('Import all 38 existing photos into the database? Only do this once!'))return;
+  
+  // Check if already imported
+  const existing=await api('GET','photos','','?select=id&limit=1');
+  if(existing.length){
+    if(!confirm('Photos already exist in database. Import anyway? This may create duplicates.'))return;
+  }
+  
+  btn.disabled=true;prog.style.display='block';
+  const photos=[{"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/E92BB221-.jpeg", "title": "Marble & Oak Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4625.jpeg", "title": "Dark Slat & Marble Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3513.jpeg", "title": "Black & Gold Geometric Feature Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4645.jpeg", "title": "Slat Wood Fireplace & Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4712.png", "title": "Dark Built-In Shelving Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3531.jpeg", "title": "Wave Sculptural Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2458.png", "title": "Black & Gold Plaid Millwork", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2457.png", "title": "Sage Grid Panel Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_1396.jpeg", "title": "Two-Story Shiplap Feature Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_5869_Original.jpeg", "title": "Grand Staircase Molding Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4677.jpeg", "title": "Taupe & Gold Geometric Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4644.jpeg", "title": "Sage Geometric Accent Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2474.png", "title": "Gray & Gold Vertical Trim Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2468.jpeg", "title": "Navy & Gold Geometric Fireplace Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/71278144931__6BA28270-8EBD-420D-B525-DB660AE5E05E_Original.jpeg", "title": "Teal Coffered Ceiling", "location": "DFW", "category": "ceiling"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4553.png", "title": "Ornate Coffered Ceiling with LED", "location": "DFW", "category": "ceiling"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4427.jpeg", "title": "Arched Built-In Shelving", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4426.jpeg", "title": "Double Arched Fireplace Built-Ins", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3942.jpeg", "title": "Custom Walk-In Pantry Shelving", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2500.jpeg", "title": "Sage Custom Cabinetry", "location": "Flower Mound, TX", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2461.png", "title": "White Glass-Door Cabinetry", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3933.jpeg", "title": "Luxury Walk-In Closet System", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_6074_Original.jpeg", "title": "Dallas Cowboys Fan Room", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/20230319_101706_Original.jpeg", "title": "Dallas Cowboys Garage Build", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4374.jpeg", "title": "Custom Kids Room Cloud Wall", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1632.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1634.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1638.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1640.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1644.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1647.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1652.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1654.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1656.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1657.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1658.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1660.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1662.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}];
+  
+  let done=0;
+  for(const p of photos){
+    try{
+      await api('POST','photos',p);
+      done++;
+      bar.style.width=Math.round((done/photos.length)*100)+'%';
+      txt.textContent=`Importing... ${done}/${photos.length}`;
+    }catch(e){console.error('Failed:',p.title,e);}
+  }
+  
+  bar.style.width='100%';
+  txt.textContent=`Done! ${done} photos imported.`;
+  setTimeout(()=>{
+    prog.style.display='none';
+    bar.style.width='0%';
+    btn.disabled=false;
+    document.getElementById('import-card').style.display='none';
+    loadPhotos();
+    toast(`✦ ${done} photos imported successfully!`);
+  },2000);
+}
+
+// Init
+window.onload=()=>{
+  const token=localStorage.getItem('eci_token');
+  if(token){
+    authToken=token;
+    document.getElementById('login').style.display='none';
+    document.getElementById('admin').style.display='block';
+    document.getElementById('ab-user').textContent='Admin';
     loadAll();
   }
 };
