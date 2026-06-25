@@ -62,15 +62,7 @@
         <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="prog-txt">Uploading...</div>
       </div>
     </div>
-    <div class="card" id="import-card">
-      <div class="card-title">⚡ Import Existing Photos</div>
-      <p style="font-size:.72rem;color:var(--tm);margin-bottom:16px;line-height:1.6">First time setup only. Tap the button below to import all 25+ existing portfolio photos into the database. Do this once before switching the live site to Supabase.</p>
-      <button class="sb" onclick="importExistingPhotos()" id="import-btn" style="background:#2a5c3a;color:#fff">Import All Existing Photos Into Database</button>
-      <div id="import-progress" style="display:none;margin-top:12px">
-        <div style="background:var(--sf2);border:1px solid var(--br);height:6px;border-radius:3px;overflow:hidden"><div id="import-bar" style="height:100%;background:var(--go);width:0%;transition:width .3s"></div></div>
-        <div style="font-size:.6rem;color:var(--tm);margin-top:6px" id="import-txt">Importing...</div>
-      </div>
-    </div>
+    
     <div class="card">
       <div class="card-title">Current Portfolio <span id="photo-count" style="color:var(--tm);font-size:.6rem"></span></div>
       <div id="photo-grid" class="photo-grid"><div class="loading">Loading photos...</div></div>
@@ -291,21 +283,19 @@ async function loadVideos(){
   const g=document.getElementById('video-list');
   g.innerHTML='<div class="loading">Loading...</div>';
   try{
-    const vids=await api('GET','videos','',`?order=created_at.desc`);
-    if(!vids.length){g.innerHTML='<div class="loading">No videos yet.</div>';return;}
-    g.innerHTML=vids.map(v=>`
-      <div class="video-item">
-        <img class="video-thumb" src="https://img.youtube.com/vi/${v.youtube_id}/mqdefault.jpg" alt="${v.title}">
-        <div class="video-info">
-          <div class="video-title-d">${v.title}</div>
-          <div class="video-sub-d">${v.subtitle}</div>
-          <div style="font-size:.54rem;color:var(--gd);margin-top:4px">ID: ${v.youtube_id}</div>
-        </div>
-        <button class="db" onclick="deleteVideo(${v.id})">Remove</button>
-      </div>`).join('');
-  }catch(e){g.innerHTML='<div class="loading">Error loading videos.</div>';}
-}
+    const vids=await api('GET','videos','','?order=created_at.desc');
+    if(!vids||!vids.length){
+      await api('POST','videos',{youtube_id:'2dBnqgTtT2M',title:'Elite Custom Interiors — Cowboys Build',subtitle:'Full Project Showcase · DFW'});
+      await api('POST','videos',{youtube_id:'yQIFV4k8raI',title:'Elite Custom Interiors — Project Showcase',subtitle:'Custom Carpentry · DFW'});
+      const seeded=await api('GET','videos','','?order=created_at.desc');
+      renderVids(seeded,g);return;
+    }
+    renderVids(vids,g);
+  }catch(e){g.innerHTML='<div class="loading">Error loading videos.</div>';}}
 
+function renderVids(vids,g){
+  if(!vids||!vids.length){g.innerHTML='<div class="loading">No videos yet.</div>';return;}
+  g.innerHTML=vids.map(v=>`<div class="video-item"><img class="video-thumb" src="https://img.youtube.com/vi/${v.youtube_id}/mqdefault.jpg" alt="${v.title}"><div class="video-info"><div class="video-title-d">${v.title}</div><div class="video-sub-d">${v.subtitle||''}</div><div style="font-size:.54rem;color:var(--gd);margin-top:4px">ID: ${v.youtube_id}</div></div><button class="db" onclick="deleteVideo(${v.id})">Remove</button></div>`).join('');}
 async function addVideo(){
   let url=document.getElementById('new-vid-url').value.trim();
   const title=document.getElementById('new-vid-title').value.trim();
@@ -392,48 +382,6 @@ async function saveCategories(){
   toast('Categories saved! ✦');
 }
 
-
-async function importExistingPhotos(){
-  const btn=document.getElementById('import-btn');
-  const prog=document.getElementById('import-progress');
-  const bar=document.getElementById('import-bar');
-  const txt=document.getElementById('import-txt');
-  
-  if(!confirm('Import all 38 existing photos into the database? Only do this once!'))return;
-  
-  // Check if already imported
-  const existing=await api('GET','photos','','?select=id&limit=1&order=id.asc');
-  if(existing.length){
-    if(!confirm('Photos already exist in database. Import anyway? This may create duplicates.'))return;
-  }
-  
-  btn.disabled=true;prog.style.display='block';
-  const photos=[{"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/E92BB221-.jpeg", "title": "Marble & Oak Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4625.jpeg", "title": "Dark Slat & Marble Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3513.jpeg", "title": "Black & Gold Geometric Feature Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4645.jpeg", "title": "Slat Wood Fireplace & Media Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4712.png", "title": "Dark Built-In Shelving Wall", "location": "DFW", "category": "media"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3531.jpeg", "title": "Wave Sculptural Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2458.png", "title": "Black & Gold Plaid Millwork", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2457.png", "title": "Sage Grid Panel Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_1396.jpeg", "title": "Two-Story Shiplap Feature Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_5869_Original.jpeg", "title": "Grand Staircase Molding Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4677.jpeg", "title": "Taupe & Gold Geometric Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4644.jpeg", "title": "Sage Geometric Accent Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2474.png", "title": "Gray & Gold Vertical Trim Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2468.jpeg", "title": "Navy & Gold Geometric Fireplace Wall", "location": "DFW", "category": "millwork"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/71278144931__6BA28270-8EBD-420D-B525-DB660AE5E05E_Original.jpeg", "title": "Teal Coffered Ceiling", "location": "DFW", "category": "ceiling"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4553.png", "title": "Ornate Coffered Ceiling with LED", "location": "DFW", "category": "ceiling"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4427.jpeg", "title": "Arched Built-In Shelving", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4426.jpeg", "title": "Double Arched Fireplace Built-Ins", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3942.jpeg", "title": "Custom Walk-In Pantry Shelving", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2500.jpeg", "title": "Sage Custom Cabinetry", "location": "Flower Mound, TX", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_2461.png", "title": "White Glass-Door Cabinetry", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_3933.jpeg", "title": "Luxury Walk-In Closet System", "location": "DFW", "category": "cabinetry"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_6074_Original.jpeg", "title": "Dallas Cowboys Fan Room", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/20230319_101706_Original.jpeg", "title": "Dallas Cowboys Garage Build", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/images/IMG_4374.jpeg", "title": "Custom Kids Room Cloud Wall", "location": "DFW", "category": "specialty"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1632.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1634.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1638.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1640.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1644.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1647.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1652.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1654.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1656.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1657.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1658.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1660.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}, {"url": "https://cdn.jsdelivr.net/gh/maestromovings-maker/ELITE-CUSTOM-INTERIORS-@main/IMG_1662.png", "title": "Custom Closet System", "location": "DFW", "category": "closet"}];
-  
-  let done=0;
-  for(const p of photos){
-    try{
-      const h={'apikey':KEY,'Authorization':'Bearer '+authToken,'Content-Type':'application/json','Prefer':'return=representation'};
-      const r=await fetch(SB+'/rest/v1/photos',{method:'POST',headers:h,body:JSON.stringify(p)});
-      const d=await r.json();
-      if(!r.ok)throw new Error(d.message||'Insert failed');
-      done++;
-      bar.style.width=Math.round((done/photos.length)*100)+'%';
-      txt.textContent=`Importing... ${done}/${photos.length}`;
-    }catch(e){console.error('Failed:',p.title,e);}
-  }
-  
-  bar.style.width='100%';
-  txt.textContent=`Done! ${done} photos imported.`;
-  setTimeout(()=>{
-    prog.style.display='none';
-    bar.style.width='0%';
-    btn.disabled=false;
-    document.getElementById('import-card').style.display='none';
-    loadPhotos();
-    toast(`✦ ${done} photos imported successfully!`);
-  },2000);
-}
 
 // Init
 window.onload=()=>{
