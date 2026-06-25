@@ -144,12 +144,25 @@ let cats=[
 
 // API helper
 async function api(method,table,body=null,query=''){
-  const h={'apikey':KEY,'Authorization':'Bearer '+authToken,'Content-Type':'application/json'};
-  if(method==='POST'||method==='PATCH')h['Prefer']='return=representation';
-  const r=await fetch(`${SB}/rest/v1/${table}${query}`,{method,headers:h,body:body?JSON.stringify(body):null});
-  if(r.status===204)return[];
-  const d=await r.json();
-  return d;
+  const token=localStorage.getItem('eci_token')||KEY;
+  const h={
+    'apikey':KEY,
+    'Authorization':'Bearer '+token,
+    'Content-Type':'application/json'
+  };
+  if(method==='POST'||method==='PATCH'||method==='PUT')h['Prefer']='return=representation';
+  const opts={method:method,headers:h};
+  if(body)opts.body=JSON.stringify(body);
+  try{
+    const r=await fetch(SB+'/rest/v1/'+table+query,opts);
+    if(r.status===204||r.status===200&&method==='DELETE')return[];
+    const text=await r.text();
+    if(!text)return[];
+    return JSON.parse(text);
+  }catch(e){
+    console.error('API error:',method,table,e);
+    return [];
+  }
 }
 
 // Toast
