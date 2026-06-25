@@ -201,7 +201,7 @@ async function loadPhotos(){
   const g=document.getElementById('photo-grid');
   g.innerHTML='<div class="loading">Loading photos...</div>';
   try{
-    const photos=await api('GET','photos','',`?order=created_at.desc`);
+    const photos=await api('GET','photos',null,`?order=created_at.desc`);
     document.getElementById('photo-count').textContent=`(${photos.length} photos)`;
     if(!photos.length){g.innerHTML='<div class="loading">No photos yet. Upload your first one!</div>';return;}
     g.innerHTML=photos.map(p=>`
@@ -274,7 +274,7 @@ async function uploadPhoto(){
 
 async function deletePhoto(id){
   if(!confirm('Remove this photo from the portfolio?'))return;
-  await api('DELETE','photos','',`?id=eq.${id}`);
+  await api('DELETE','photos',null,`?id=eq.${id}`);
   loadPhotos();toast('Photo removed.');
 }
 
@@ -283,11 +283,11 @@ async function loadVideos(){
   const g=document.getElementById('video-list');
   g.innerHTML='<div class="loading">Loading...</div>';
   try{
-    const vids=await api('GET','videos','','?order=created_at.desc');
+    const vids=await api('GET','videos',null,'?order=created_at.desc');
     if(!vids||!vids.length){
       await api('POST','videos',{youtube_id:'2dBnqgTtT2M',title:'Elite Custom Interiors — Cowboys Build',subtitle:'Full Project Showcase · DFW'});
       await api('POST','videos',{youtube_id:'yQIFV4k8raI',title:'Elite Custom Interiors — Project Showcase',subtitle:'Custom Carpentry · DFW'});
-      const seeded=await api('GET','videos','','?order=created_at.desc');
+      const seeded=await api('GET','videos',null,'?order=created_at.desc');
       renderVids(seeded,g);return;
     }
     renderVids(vids,g);
@@ -316,14 +316,14 @@ async function addVideo(){
 
 async function deleteVideo(id){
   if(!confirm('Remove this video?'))return;
-  await api('DELETE','videos','',`?id=eq.${id}`);
+  await api('DELETE','videos',null,`?id=eq.${id}`);
   loadVideos();toast('Video removed.');
 }
 
 // CONTACT/SETTINGS
 async function loadContact(){
   try{
-    const rows=await api('GET','settings','',`?order=key`);
+    const rows=await api('GET','settings',null,`?order=key`);
     const s={};rows.forEach(r=>s[r.key]=r.value);
     document.getElementById('c-phone').value=s.phone||'469-659-1912';
     document.getElementById('c-email').value=s.email||'Elite.Interiors1912@Gmail.com';
@@ -349,7 +349,7 @@ async function saveSetting(type){
     ['youtube',document.getElementById('c-yt').value],
   ];
   for(const[key,value]of pairs){
-    const existing=await api('GET','settings','',`?key=eq.${key}`);
+    const existing=await api('GET','settings',null,`?key=eq.${key}`);
     if(existing.length)await api('PATCH','settings',{value},`?key=eq.${key}`);
     else await api('POST','settings',{key,value});
   }
@@ -376,7 +376,7 @@ function loadCats(){
 
 async function saveCategories(){
   const val=JSON.stringify(cats);
-  const existing=await api('GET','settings','',`?key=eq.categories`);
+  const existing=await api('GET','settings',null,`?key=eq.categories`);
   if(existing.length)await api('PATCH','settings',{value:val},`?key=eq.categories`);
   else await api('POST','settings',{key:'categories',value:val});
   toast('Categories saved! ✦');
