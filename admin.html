@@ -183,7 +183,7 @@ async function doLogin(){
     const d=await r.json();
     if(d.error||!d.access_token){err.style.display='block';return;}
     authToken=d.access_token;
-    localStorage.setItem('eci_token',authToken);
+    localStorage.setItem('eci_token',authToken);if(d.refresh_token)localStorage.setItem('eci_refresh',d.refresh_token);
     document.getElementById('ab-user').textContent=email;
     document.getElementById('login').style.display='none';
     document.getElementById('admin').style.display='block';
@@ -232,13 +232,26 @@ async function loadPhotos(){
 function previewPhoto(input){
   const file=input.files[0];
   if(!file)return;
-  if(file.size>5*1024*1024){toast('File too large — max 5MB',false);return;}
-  selectedFile=file;
+  selectedFile=null;
+  // Compress image before upload
   const reader=new FileReader();
   reader.onload=e=>{
-    document.getElementById('preview-img').src=e.target.result;
-    document.getElementById('preview-name').textContent=file.name+' ('+(file.size/1024).toFixed(0)+'KB)';
-    document.getElementById('photo-preview').style.display='block';
+    const img=new Image();
+    img.onload=()=>{
+      const canvas=document.createElement('canvas');
+      let w=img.width,h=img.height;
+      const MAX=1920;
+      if(w>MAX||h>MAX){if(w>h){h=Math.round(h*MAX/w);w=MAX;}else{w=Math.round(w*MAX/h);h=MAX;}}
+      canvas.width=w;canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      canvas.toBlob(blob=>{
+        selectedFile=new File([blob],file.name.replace(/\.[^.]+$/,'.jpg'),{type:'image/jpeg'});
+        document.getElementById('preview-img').src=e.target.result;
+        document.getElementById('preview-name').textContent=file.name+' → compressed to '+(selectedFile.size/1024).toFixed(0)+'KB';
+        document.getElementById('photo-preview').style.display='block';
+      },'image/jpeg',0.85);
+    };
+    img.src=e.target.result;
   };
   reader.readAsDataURL(file);
 }
@@ -397,6 +410,23 @@ async function saveCategories(){
 
 
 // Init
+function refreshToken(){
+  const token=localStorage.getItem('eci_token');
+  if(!token){doLogout();return;}
+  fetch(SB+'/auth/v1/token?grant_type=refresh_token',{
+    method:'POST',
+    headers:{'apikey':KEY,'Content-Type':'application/json'},
+    body:JSON.stringify({refresh_token:localStorage.getItem('eci_refresh')||''})
+  }).then(r=>r.json()).then(d=>{
+    if(d.access_token){
+      authToken=d.access_token;
+      localStorage.setItem('eci_token',d.access_token);
+      if(d.refresh_token)localStorage.setItem('eci_refresh',d.refresh_token);
+    }else{doLogout();}
+  }).catch(()=>{});
+}
+setInterval(refreshToken,45*60*1000);// Refresh every 45 mins
+
 window.onload=()=>{
   const token=localStorage.getItem('eci_token');
   if(token){
@@ -405,6 +435,7 @@ window.onload=()=>{
     document.getElementById('admin').style.display='block';
     document.getElementById('ab-user').textContent='Admin';
     loadAll();
+    setInterval(refreshToken,45*60*1000);
   }
 };
 </script></body></html>
